@@ -2,7 +2,8 @@ import { draftMode } from "next/headers";
 import { fetchBlogPosts } from "@/contentful/blogPost";
 import Link from "next/link";
 
-import Header from "../components/Header";
+import AboutMeSection from "@/components/AboutMe";
+import HeaderSection from "@/components/Header";
 
 export default async function Home() {
 
@@ -10,7 +11,8 @@ export default async function Home() {
 
   return (
     <>
-      <Header />
+      <HeaderSection />
+      <AboutMeSection />
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <div className="prose">
           <h1>Blog Post</h1>
