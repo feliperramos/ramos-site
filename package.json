@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "types:contentful": "set /p VAR_NAME=<.env.local cf-content-types-generator --spaceId %CONTENTFUL_SPACE_ID% --token %CONTENTFUL_MANAGEMENT_TOKEN% -o src/contentful/types -X && prettier --write src/contentful/types"
+    "lint": "next lint"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.17.0",
