@@ -1,22 +1,22 @@
 export const getRouteName = [
   {
     link: "/resume",
-    value: "Resume",
+    value: "resume",
   },
   {
     link: "/blog",
-    value: "Blog",
+    value: "blog",
   },
   {
     link: "/projects",
-    value: "Projects",
+    value: "projects",
   },
   {
     link: "/contact",
-    value: "Contact Me",
+    value: "contact me",
   },
   {
     link: "/about-me",
-    value: "About Me",
+    value: "about me",
   },
 ];

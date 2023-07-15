@@ -4,15 +4,17 @@ import Link from "next/link";
 
 import AboutMeSection from "@/components/AboutMe";
 import HeaderSection from "@/components/Header";
+import ProjectsSection from "@/components/Projects";
 
 export default async function Home() {
 
   const blogPosts = await fetchBlogPosts({ preview: draftMode().isEnabled });
 
   return (
-    <>
+    <div className="font-mono">
       <HeaderSection />
       <AboutMeSection />
+      <ProjectsSection />
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <div className="prose">
           <h1>Blog Post</h1>
@@ -28,6 +30,6 @@ export default async function Home() {
           </ul>
         </div>
       </main>
-    </>
+    </div>
   )
 }
