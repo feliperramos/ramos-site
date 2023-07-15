@@ -20,7 +20,6 @@ export default function ProjectsSection() {
               </div>
               <div className="group relative">
                 <h3 className="mt-3 text-2xl font-bold leading-6 text-gray-100">
-                  <span className="absolute inset-0" />
                   {item.title}
                 </h3>
                 <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-200 text-justify">{item.description}</p>
@@ -30,7 +29,6 @@ export default function ProjectsSection() {
                   {item.technology}
                 </p>
                 <a href={item.link} className="font-semibold text-slate-800 text-base hover:text-black">
-                  <span className="absolute inset-0" aria-hidden="true" />
                   meet this project <span aria-hidden="true">&rarr;</span>
                 </a>
               </div>
