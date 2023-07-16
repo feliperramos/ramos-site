@@ -5,6 +5,7 @@ import Link from "next/link";
 import AboutMeSection from "@/components/AboutMe";
 import HeaderSection from "@/components/Header";
 import ProjectsSection from "@/components/Projects";
+import BlogSection from "@/components/Blog";
 
 export default async function Home() {
 
@@ -15,7 +16,8 @@ export default async function Home() {
       <HeaderSection />
       <AboutMeSection />
       <ProjectsSection />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <BlogSection posts={blogPosts} />
+      {/* <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <div className="prose">
           <h1>Blog Post</h1>
 
@@ -29,7 +31,7 @@ export default async function Home() {
             })}
           </ul>
         </div>
-      </main>
+      </main> */}
     </div>
   )
 }
