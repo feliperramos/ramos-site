@@ -37,7 +37,7 @@ export default function BlogSection({ posts }: BlogSection) {
                       {item.title}
                     </h3>
                   </a>
-                  <p className="mt-3 line-clamp-3 text-sm leading-6 text-gray-200 text-justify"><RichText document={item.body} /></p>
+                  <div className="mt-3 line-clamp-3 text-sm leading-6 text-gray-200 text-justify"><RichText document={item.body} /></div>
                 </div>
                 <div className="mt-2 flex justify-start items-start gap-x-4 text-xs">
                   <div className="relative mt-8 flex items-center gap-x-4">
@@ -62,6 +62,12 @@ export default function BlogSection({ posts }: BlogSection) {
               </div>
             </article>
           )).slice(0, 3)}
+        </div>
+
+        <div className="my-auto mt-10 flex flex-col max-w-2xl border-t border-gray-200 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none">
+          <a href="/blog" className="font-semibold text-sky-800 text-xl hover:text-sky-700">
+            see more posts <span aria-hidden="true">&rarr;</span>
+          </a>
         </div>
       </div>
     </div>
