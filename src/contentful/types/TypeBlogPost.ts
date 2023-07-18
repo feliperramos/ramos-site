@@ -11,6 +11,9 @@ export interface TypeBlogPostFields {
   slug: EntryFieldTypes.Symbol;
   body?: EntryFieldTypes.RichText;
   image?: EntryFieldTypes.AssetLink;
+  publishDate?: EntryFieldTypes.Date;
+  author?: EntryFieldTypes.Symbol;
+  category?: EntryFieldTypes.Symbol;
 }
 
 export type TypeBlogPostSkeleton = EntrySkeletonType<

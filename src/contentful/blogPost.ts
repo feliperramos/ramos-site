@@ -11,6 +11,9 @@ export interface BlogPost {
   slug: string;
   body: RichTextDocument | null;
   image: ContentImage | null;
+  publishDate: string | null;
+  author: string | null;
+  category: string | null;
 }
 
 export function parseContentfulBlogPost(
@@ -23,6 +26,9 @@ export function parseContentfulBlogPost(
     slug: blogPostEntry.fields.slug,
     body: blogPostEntry.fields.body || null,
     image: parseContentfulContentImage(blogPostEntry.fields.image),
+    publishDate: blogPostEntry.fields.publishDate || null,
+    author: blogPostEntry.fields.author || "",
+    category: blogPostEntry.fields.category || "",
   };
 }
 
