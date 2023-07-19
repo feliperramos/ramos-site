@@ -18,14 +18,8 @@ export const metadata = {
 
 export async function getStaticPaths() {
   return {
-    paths: [
-      {
-        params: {
-          locale: '/'
-        }
-      }
-    ],
-    fallback: true
+    paths: [],
+    fallback: false
   };
 };
 
