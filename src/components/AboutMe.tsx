@@ -2,9 +2,12 @@
 import Image from "next/image";
 import MySelfImage from "../../public/images/myself.jpg"
 import { getTechnologies } from '@/utils/getTechnologies';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 export default function AboutMeSection() {
+
+  const locale = useLocale();
+
   const t = useTranslations('aboutMe');
 
   return (
@@ -28,7 +31,7 @@ export default function AboutMeSection() {
               </div>
 
               <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                <a href="/about-me" className="font-semibold text-sky-800">
+                <a href={`${locale}/about-me`} className="font-semibold text-sky-800">
                   <span className="absolute inset-0" aria-hidden="true">
                   </span>{t('button')} <span aria-hidden="true">&rarr;</span></a>
               </div>

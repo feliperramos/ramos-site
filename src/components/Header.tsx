@@ -5,7 +5,6 @@ import { getRouteName } from "@/utils/getRouteName";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
 import Link from "next-intl/link";
-import { useRouter } from 'next-intl/client';
 import { useLocale, useTranslations } from 'next-intl';
 
 import BrazilIcon from '../../public/images/brazil.png';
@@ -52,7 +51,7 @@ export default function HeaderSection() {
           {commonStrings.map((item, index) => (
             <a
               className="text-base font-semibold leading-6 text-white hover:text-cyan-400"
-              href={`${locale}/${item.link}`}
+              href={item.link}
               key={index}
             >
               {item.value}

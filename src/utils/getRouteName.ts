@@ -1,28 +1,30 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export const getRouteName = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const t = useTranslations("header");
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const locale = useLocale();
 
   return [
     {
-      link: "/resume",
+      link: `${locale}/resume`,
       value: t("menu.resume"),
     },
     {
-      link: "/blog",
+      link: `${locale}/blog`,
       value: t("menu.blog"),
     },
     {
-      link: "/projects",
+      link: `${locale}/projects`,
       value: t("menu.projects"),
     },
     {
-      link: "/contact",
+      link: `${locale}/contact`,
       value: t("menu.contactMe"),
     },
     {
-      link: "/about-me",
+      link: `${locale}/about-me`,
       value: t("menu.aboutMe"),
     },
   ];
