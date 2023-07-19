@@ -17,7 +17,16 @@ export const metadata = {
 }
 
 export async function getStaticPaths() {
-  return { paths: [], fallback: true };
+  return {
+    paths: [
+      {
+        params: {
+          locale: '/'
+        }
+      }
+    ],
+    fallback: true
+  };
 };
 
 export default async function RootLayout({
