@@ -22,7 +22,6 @@ export default function HeaderSection() {
   const t = useTranslations('header');
 
   const handleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
-  const router = useRouter();
 
   const handleLanguage = (lang: string) => {
     setLanguage(lang)
@@ -44,7 +43,7 @@ export default function HeaderSection() {
           </button>
         </div>
         <div className="lg:flex lg:flex-1 ">
-          <a href="/" className="-m-1.5 p-1">
+          <a href={`/${locale}/`} className="-m-1.5 p-1">
             <p className="text-3xl font-black">{`FELIPE </> RAMOS`}</p>
           </a>
         </div>
@@ -53,7 +52,7 @@ export default function HeaderSection() {
           {commonStrings.map((item, index) => (
             <a
               className="text-base font-semibold leading-6 text-white hover:text-cyan-400"
-              href={item.link}
+              href={`${locale}/${item.link}`}
               key={index}
             >
               {item.value}
