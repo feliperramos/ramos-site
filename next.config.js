@@ -1,10 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  i18n: {
-    locales: ["pt", "en"],
-    defaultLocale: "pt",
-  },
+  output: "standalone",
 };
 
 module.exports = nextConfig;
