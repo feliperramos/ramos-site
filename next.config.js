@@ -5,6 +5,11 @@ const nextConfig = {
     locales: ["pt", "en"],
     defaultLocale: "pt",
   },
+  exportPathMap: function () {
+    return {
+      "/": { page: "/[locale]/" },
+    };
+  },
 };
 
 module.exports = nextConfig;
