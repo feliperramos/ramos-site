@@ -1,19 +1,23 @@
+'use client'
 import RichText from "@/contentful/RichText";
 import type { BlogPost } from "@/contentful/blogPost";
 import { getFormattedDate } from "@/utils/getFormattedDate";
 import { getAvatarData } from "@/utils/getAvatarData";
+import { useTranslations } from 'next-intl';
 
 interface BlogSection {
   posts: BlogPost[];
 }
 
 export default function BlogSection({ posts }: BlogSection) {
+  const t = useTranslations('blog');
+
   return (
     <div className="overflow-hidden bg-slate-900 py-20 sm:py-24">
       <div className="mx-auto max-w-7x1 px-12 lg:px-16">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-sky-800 sm:text-4xl">blog</h2>
-          <p className="mt-2 text-lg leading-8 text-gray-300">New features, projects, videos in youtube channel and hobbies</p>
+          <h2 className="text-3xl font-bold tracking-tight text-sky-800 sm:text-4xl">{t('title')}</h2>
+          <p className="mt-2 text-lg leading-8 text-gray-300">{t('description')}</p>
         </div>
         <div className="my-auto mt-10 flex flex-col max-w-2xl border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none">
           {posts.map((item, index) => (
@@ -56,7 +60,7 @@ export default function BlogSection({ posts }: BlogSection) {
                 </div>
                 <div className="mt-2 flex justify-start items-start gap-x-4 text-xs">
                   <a href={`/blog/${item.slug}`} className="font-semibold text-sky-800 text-base hover:text-sky-700">
-                    read more <span aria-hidden="true">&rarr;</span>
+                    {t('buttonReadMore')} <span aria-hidden="true">&rarr;</span>
                   </a>
                 </div>
               </div>
@@ -66,7 +70,7 @@ export default function BlogSection({ posts }: BlogSection) {
 
         <div className="my-auto mt-10 flex flex-col max-w-2xl border-t border-gray-200 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none">
           <a href="/blog" className="font-semibold text-sky-800 text-xl hover:text-sky-700">
-            see more posts <span aria-hidden="true">&rarr;</span>
+            {t('buttonSeeMorePosts')} <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </div>
