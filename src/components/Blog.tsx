@@ -1,19 +1,24 @@
+'use client'
 import RichText from "@/contentful/RichText";
 import type { BlogPost } from "@/contentful/blogPost";
 import { getFormattedDate } from "@/utils/getFormattedDate";
 import { getAvatarData } from "@/utils/getAvatarData";
+import { useLocale, useTranslations } from 'next-intl';
 
 interface BlogSection {
   posts: BlogPost[];
 }
 
 export default function BlogSection({ posts }: BlogSection) {
+  const t = useTranslations('blog');
+  const locale = useLocale();
+
   return (
     <div className="overflow-hidden bg-slate-900 py-20 sm:py-24">
       <div className="mx-auto max-w-7x1 px-12 lg:px-16">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-sky-800 sm:text-4xl">blog</h2>
-          <p className="mt-2 text-lg leading-8 text-gray-300">New features, projects, videos in youtube channel and hobbies</p>
+          <h2 className="text-3xl font-bold tracking-tight text-sky-800 sm:text-4xl">{t('title')}</h2>
+          <p className="mt-2 text-lg leading-8 text-gray-300">{t('description')}</p>
         </div>
         <div className="my-auto mt-10 flex flex-col max-w-2xl border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none">
           {posts.map((item, index) => (
@@ -32,7 +37,7 @@ export default function BlogSection({ posts }: BlogSection) {
                 <div className="mx-auto flex justify-center content-center items-center gap-x-1">
                 </div>
                 <div className="group relative">
-                  <a href={`/blog/${item.slug}`}>
+                  <a href={`${locale}/blog/${item.slug}`}>
                     <h3 className="mt-3 text-2xl font-bold leading-6 text-sky-800 hover:text-sky-700">
                       {item.title}
                     </h3>
@@ -45,7 +50,7 @@ export default function BlogSection({ posts }: BlogSection) {
                     <img srcSet={getAvatarData.avatar} src={getAvatarData.avatar} alt="" className="h-10 w-10 rounded-full bg-gray-50" />
                     <div className="text-sm leading-6">
                       <p className="font-semibold text-gray-400">
-                        <a href="/about-me">
+                        <a href={`${locale}/about-me`}>
                           {getAvatarData.name}
                         </a>
                       </p>
@@ -55,8 +60,8 @@ export default function BlogSection({ posts }: BlogSection) {
 
                 </div>
                 <div className="mt-2 flex justify-start items-start gap-x-4 text-xs">
-                  <a href={`/blog/${item.slug}`} className="font-semibold text-sky-800 text-base hover:text-sky-700">
-                    read more <span aria-hidden="true">&rarr;</span>
+                  <a href={`${locale}/blog/${item.slug}`} className="font-semibold text-sky-800 text-base hover:text-sky-700">
+                    {t('buttonReadMore')} <span aria-hidden="true">&rarr;</span>
                   </a>
                 </div>
               </div>
@@ -65,8 +70,8 @@ export default function BlogSection({ posts }: BlogSection) {
         </div>
 
         <div className="my-auto mt-10 flex flex-col max-w-2xl border-t border-gray-200 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none">
-          <a href="/blog" className="font-semibold text-sky-800 text-xl hover:text-sky-700">
-            see more posts <span aria-hidden="true">&rarr;</span>
+          <a href={`${locale}/blog`} className="font-semibold text-sky-800 text-xl hover:text-sky-700">
+            {t('buttonSeeMorePosts')} <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </div>

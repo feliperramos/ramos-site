@@ -1,7 +1,7 @@
+'use client'
 import HeaderSection from "@/components/Header";
 
-export default async function AboutMe() {
-
+export default function AboutMe() {
   return (
     <div className="font-mono">
       <HeaderSection />

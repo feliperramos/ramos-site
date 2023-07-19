@@ -4,6 +4,8 @@ import { MenuOutlined, CloseOutlined } from '@material-ui/icons';
 import { getRouteName } from "@/utils/getRouteName";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
+import Link from "next-intl/link";
+import { useLocale, useTranslations } from 'next-intl';
 
 import BrazilIcon from '../../public/images/brazil.png';
 import USAIcon from '../../public/images/usa.png';
@@ -14,8 +16,17 @@ function classNames(...classes: string[]) {
 
 export default function HeaderSection() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const locale = useLocale();
+  const [language, setLanguage] = useState(locale);
+  const t = useTranslations('header');
 
   const handleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+
+  const handleLanguage = (lang: string) => {
+    setLanguage(lang)
+  };
+
+  const commonStrings = getRouteName();
 
   return (
     <header className="bg-sky-900">
@@ -31,13 +42,13 @@ export default function HeaderSection() {
           </button>
         </div>
         <div className="lg:flex lg:flex-1 ">
-          <a href="/" className="-m-1.5 p-1">
+          <a href={`/${locale}/`} className="-m-1.5 p-1">
             <p className="text-3xl font-black">{`FELIPE </> RAMOS`}</p>
           </a>
         </div>
 
         <div className='hidden lg:flex lg:gap-x-12'>
-          {getRouteName.map((item, index) => (
+          {commonStrings.map((item, index) => (
             <a
               className="text-base font-semibold leading-6 text-white hover:text-cyan-400"
               href={item.link}
@@ -57,7 +68,7 @@ export default function HeaderSection() {
                 <span className="sr-only">Open language menu</span>
                 <Image
                   className="h-6 w-8 rounded-full"
-                  src={BrazilIcon}
+                  src={language === "pt" ? BrazilIcon : USAIcon}
                   alt="language"
                 />
               </Menu.Button>
@@ -82,12 +93,14 @@ export default function HeaderSection() {
                         src={BrazilIcon}
                         alt="language"
                       />
-                      <a
-                        href="#"
+                      <Link
+                        onClick={() => handleLanguage("pt")}
+                        href="/"
                         className={classNames(active ? 'block px-4 py-2 text-sm text-cyan-500' : 'block px-4 py-2 text-sm text-gray-700')}
+                        locale="pt"
                       >
-                        Brazilian Portuguese
-                      </a>
+                        {t('languages.pt-BR')}
+                      </Link>
                     </div>
                   )}
                 </Menu.Item>
@@ -99,12 +112,14 @@ export default function HeaderSection() {
                         src={USAIcon}
                         alt="language"
                       />
-                      <a
-                        href="#"
+                      <Link
+                        onClick={() => handleLanguage("en")}
+                        href="/"
                         className={classNames(active ? 'block px-4 py-2 text-sm text-cyan-500' : 'block px-4 py-2 text-sm text-gray-700')}
+                        locale="en"
                       >
-                        English
-                      </a>
+                        {t('languages.en-US')}
+                      </Link>
                     </div>
                   )}
                 </Menu.Item>
@@ -140,7 +155,7 @@ export default function HeaderSection() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                {getRouteName.map((item, index) => (
+                {commonStrings.map((item, index) => (
                   <a
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:text-cyan-400"
                     href={item.link}

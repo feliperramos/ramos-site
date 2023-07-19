@@ -1,6 +1,5 @@
 import { draftMode } from "next/headers";
 import { fetchBlogPosts } from "@/contentful/blogPost";
-import Link from "next/link";
 
 import AboutMeSection from "@/components/AboutMe";
 import HeaderSection from "@/components/Header";

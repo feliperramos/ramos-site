@@ -1,0 +1,41 @@
+{
+  "header": {
+    "menu": {
+      "resume": "cv",
+      "blog": "blog",
+      "projects": "projetos",
+      "contactMe": "contato",
+      "aboutMe": "sobre mim"
+    },
+    "languages": {
+      "pt-BR": "Português Brasileiro",
+      "en-US": "Inglês"
+    }
+  },
+  "aboutMe": {
+    "title": "sobre mim",
+    "description": "Meu nome é Felipe Ramos. Sou desenvolvedor Front End e criei este site para que você possa me conhecer um pouco mais!<item>Trabalho como desenvolvedor a mais de 5 anos e tenho experiência com muitas tecnologias, mas hoje meu foco é principalmente nestas tecnologias:</item>",
+    "button": "veja mais"
+  },
+  "projects": {
+    "title": "projetos",
+    "description": "Alguns projetos que já desenvolvi",
+    "button": "conheça este projeto"
+  },
+  "blog": {
+    "title": "blog",
+    "description": "Novas features, projetos, videos no canal do youtube e hobbies",
+    "buttonReadMore": "leia mais",
+    "buttonSeeMorePosts": "veja mais publicações"
+  },
+  "footer": {
+    "title": "Deixe seu email para contato",
+    "description": "Digite seu email abaixo para que eu possa contatá-lo",
+    "placeholder": "Digite seu email",
+    "buttonSend": "enviar",
+    "titleMenu": "Menu",
+    "titleSocialMedia": "Redes Sociais",
+    "madeDescription": "Feito com 💙",
+    "madeDescription2line": "usando"
+  }
+}

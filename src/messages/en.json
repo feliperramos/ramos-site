@@ -1,0 +1,41 @@
+{
+  "header": {
+    "menu": {
+      "resume": "resume",
+      "blog": "blog",
+      "projects": "projects",
+      "contactMe": "contact me",
+      "aboutMe": "about me"
+    },
+    "languages": {
+      "pt-BR": "Brazilian Portuguese",
+      "en-US": "English"
+    }
+  },
+  "aboutMe": {
+    "title": "about me",
+    "description": "My name is Felipe Ramos. I'm a Front End Developer and I created this site for you to know more about me!<item>I've been working as a developer for over 5 years and I have experience in several technologies, but today my focus is mainly on these technologies:</item>",
+    "button": "see more"
+  },
+  "projects": {
+    "title": "projects",
+    "description": "Example projects that I have already created.",
+    "button": "meet this project"
+  },
+  "blog": {
+    "title": "blog",
+    "description": "New features, projects, videos in youtube channel and hobbies",
+    "buttonReadMore": "read more",
+    "buttonSeeMorePosts": "see more posts"
+  },
+  "footer": {
+    "title": "Type your contact email",
+    "description": "Type your email below so I can contact you.",
+    "placeholder": "Enter your email",
+    "buttonSend": "send",
+    "titleMenu": "Menu",
+    "titleSocialMedia": "Social Midia",
+    "madeDescription": "Made with 💙",
+    "madeDescription2line": "using"
+  }
+}
