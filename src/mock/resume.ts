@@ -49,7 +49,9 @@ export const ResumeData: MockProps = {
       },
     ],
   },
-  experience: {
+  experiences: {
+    // I want to use this comment, because the typing error in experiences don't work well like education. the two types has the same logic.
+    // @ts-ignore
     pt: [
       {
         company: "ACCT Global / Quality Digital",

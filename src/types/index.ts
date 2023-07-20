@@ -2,7 +2,7 @@ export interface MockProps {
   personal: PersonalProps;
   intro: IntroductionProps;
   education: EducationProps;
-  experience: ExperienceLanguageProps;
+  experiences: ExperienceLanguageProps;
   skils: TechnologiesProps[];
 }
 
