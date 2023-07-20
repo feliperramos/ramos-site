@@ -37,5 +37,50 @@
     "titleSocialMedia": "Redes Sociais",
     "madeDescription": "Feito com 💙",
     "madeDescription2line": "usando"
+  },
+  "resume": {
+    "title": "Currículo",
+    "description": "Este é meu currículo, aqui você encontrará mais informações sobre minha carreira.",
+    "personal": {
+      "title": "Informações Sobre Mim",
+      "name": "Nome",
+      "location": "Localização",
+      "email": "Email",
+      "phone": "Telefone",
+      "age": "Idade"
+    },
+    "intro": {
+      "title": "Objetivo"
+    },
+    "education": {
+      "title": "Educação",
+      "degree": "Curso",
+      "college": "Universidade/Faculdade",
+      "startDate": "Data de Ínicio",
+      "endDate": "Data de Término",
+      "status": "Status"
+    },
+    "experience": {
+      "title": "Experiências Profissionais",
+      "company": "Empresa",
+      "role": "Cargo",
+      "startDate": "Data de Ínicio",
+      "endDate": "Data de Término",
+      "description": "Atribuições",
+      "technologies": "Técnologias Utilizadas",
+      "companylink": "Site da Empresa"
+    },
+    "skills": {
+      "title": "Habilidades",
+      "technology": "Tecnologia",
+      "skillLevel": "Nível de Conhecimento",
+      "yearsOfExperience": "Anos de Experiência"
+    },
+    "certifications": {
+      "title": "Certificados",
+      "certificationName": "Nome do Certificado",
+      "certificationType": "Tipo de Certificação",
+      "expirationDate": "Data de Expiração"
+    }
   }
 }
