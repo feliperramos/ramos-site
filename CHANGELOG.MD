@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2023-07-21
+
+### Added
+
+- Resume Screen
+- New Components to Resume Skill like Experience, Skill and College item map.
+
+### Changed
+
+-.env.local
+
 ## [0.2.0] - 2023-07-17
 
 ### Added
