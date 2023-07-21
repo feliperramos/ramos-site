@@ -188,7 +188,7 @@ export const ResumeData: MockProps = {
           { technology: "Git" },
           { technology: "Gatsby" },
         ],
-        companyLink: "https://www.qualitydigital.com.br/",
+        companyLink: "https://qualitydigital.global",
       },
       {
         company: "Pedido Pago",

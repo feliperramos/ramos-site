@@ -1,12 +1,13 @@
 'use client';
-import HeaderSection from "@/components/Header";
 import { useTranslations, useLocale } from "next-intl";
+import HeaderSection from "@/components/Header";
 import { ResumeData } from "@/mock/resume";
 import { getAvatarData } from "@/utils/getAvatarData";
 import CollegeItem from "@/components/Resume/College";
 import ExperienceItem from "@/components/Resume/Experiences";
 import { BadgeTechnologies } from "@/components/Resume/Badges";
 import FooterSection from "@/components/Footer";
+import { Email, WhatsApp } from "@material-ui/icons";
 
 export default function Resume() {
   const t = useTranslations('resume');
@@ -39,11 +40,11 @@ export default function Resume() {
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
               <dt className="text-sm font-medium leading-6 text-gray-100">{t('personal.email')}</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-100 sm:col-span-2 sm:mt-o">{personal.email}</dd>
+              <a href={`mailto:${personal.email}?subject=${t('title')}`} className="mt-1 text-sm leading-6 text-gray-100 hover:text-cyan-400 sm:col-span-2 sm:mt-o"><Email className="h-4 w-4" /></a>
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
               <dt className="text-sm font-medium leading-6 text-gray-100">{t('personal.phone')}</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-100 sm:col-span-2 sm:mt-o">{personal.phone}</dd>
+              <a href={personal.phone} target="_blank" className="mt-1 text-sm leading-6 text-gray-100 hover:text-green-500 sm:col-span-2 sm:mt-o"><WhatsApp className="h-4 w-4" /></a>
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
               <dt className="text-sm font-medium leading-6 text-gray-100">{t('personal.age')}</dt>
