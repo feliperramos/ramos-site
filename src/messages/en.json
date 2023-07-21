@@ -37,5 +37,50 @@
     "titleSocialMedia": "Social Midia",
     "madeDescription": "Made with 💙",
     "madeDescription2line": "using"
+  },
+  "resume": {
+    "title": "Resume",
+    "description": "This is my Resume, here you will find more information about my career.",
+    "personal": {
+      "title": "Personal Information",
+      "name": "Name",
+      "location": "Location",
+      "email": "Email",
+      "phone": "Phone",
+      "age": "Age"
+    },
+    "intro": {
+      "title": "Summary/Objective"
+    },
+    "education": {
+      "title": "Education",
+      "degree": "Degree",
+      "college": "College",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "status": "Status"
+    },
+    "experience": {
+      "title": "Professional Experience",
+      "company": "Company",
+      "role": "Role",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "description": "Assignments",
+      "technologies": "Technologies used",
+      "companyLink": "Company Website"
+    },
+    "skills": {
+      "title": "Skills",
+      "technology": "Technology",
+      "skillLevel": "Skill Level",
+      "yearsOfExperience": "Years of Experience"
+    },
+    "certifications": {
+      "title": "Certifications",
+      "certificationName": "Name of Certificate",
+      "certificationType": "Type",
+      "expirationDate": "Expiration"
+    }
   }
 }
