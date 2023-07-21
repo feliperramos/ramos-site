@@ -67,8 +67,8 @@
       "startDate": "Data de Ínicio",
       "endDate": "Data de Término",
       "description": "Atribuições",
-      "technologies": "Técnologias Utilizadas",
-      "companylink": "Site da Empresa"
+      "technologies": "Tecnologias Utilizadas",
+      "companyLink": "Site da Empresa"
     },
     "skills": {
       "title": "Habilidades",

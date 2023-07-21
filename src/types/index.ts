@@ -2,8 +2,8 @@ export interface MockProps {
   personal: PersonalProps;
   intro: IntroductionProps;
   education: EducationProps;
-  experiences: ExperienceLanguageProps;
-  skils: TechnologiesProps[];
+  experiences: ExperienceProps;
+  skills: TechnologiesProps[];
 }
 
 export interface PersonalProps {
@@ -43,6 +43,7 @@ export interface ExperienceLanguageProps {
   endDate: string;
   description: string;
   technologies: TechnologiesProps[];
+  companyLink: string;
 }
 
 export interface TechnologiesProps {

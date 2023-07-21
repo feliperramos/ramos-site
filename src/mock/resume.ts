@@ -18,28 +18,21 @@ export const ResumeData: MockProps = {
   education: {
     pt: [
       {
-        degree: "Bacharel em Ciência da Computação",
-        college: "Universidade de Sorocaba",
-        startDate: "02/2015",
-        endDate: "11/2020",
-        status: "Incompleta",
-      },
-      {
         degree: "Análise e Desenvolvimento de Sistemas",
         college: "Universidade de Sorocaba",
         startDate: "02/2022",
         endDate: "11/2023",
         status: "Em Andamento",
       },
+      {
+        degree: "Bacharel em Ciência da Computação",
+        college: "Universidade de Sorocaba",
+        startDate: "02/2015",
+        endDate: "11/2020",
+        status: "Incompleta",
+      },
     ],
     en: [
-      {
-        degree: "Bachelor of Computer Science",
-        college: "Sorocaba University",
-        startDate: "2015/02",
-        endDate: "2020/11",
-        status: "Incompleted",
-      },
       {
         degree: "Analysis and Systems Development",
         college: "Sorocaba University",
@@ -47,10 +40,17 @@ export const ResumeData: MockProps = {
         endDate: "2023/11",
         status: "In Progress",
       },
+      {
+        degree: "Bachelor of Computer Science",
+        college: "Sorocaba University",
+        startDate: "2015/02",
+        endDate: "2020/11",
+        status: "Incompleted",
+      },
     ],
   },
   experiences: {
-    // I want to use this comment, because the typing error in experiences don't work well like education. the two types has the same logic.
+    // I need this comment, because the typing error in experiences don't work well like education. the two types has the same logic.
     // @ts-ignore
     pt: [
       {

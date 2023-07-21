@@ -3,11 +3,15 @@ import HeaderSection from "@/components/Header";
 import { useTranslations, useLocale } from "next-intl";
 import { ResumeData } from "@/mock/resume";
 import { getAvatarData } from "@/utils/getAvatarData";
+import CollegeItem from "@/components/Resume/College";
+import ExperienceItem from "@/components/Resume/Experiences";
+import { BadgeTechnologies } from "@/components/Resume/Badges";
+import FooterSection from "@/components/Footer";
 
 export default function Resume() {
   const t = useTranslations('resume');
   const locale = useLocale();
-  const { personal, intro, education } = ResumeData;
+  const { personal, intro, education, experiences, skills } = ResumeData;
   const { avatar } = getAvatarData;
 
   return (
@@ -61,15 +65,26 @@ export default function Resume() {
 
         <div className="mt-6 mx-8 sm:mx-20 border-t border-gray-700">
           <p className="my-4 text-3xl font-semibold leading-7">{t('education.title')}</p>
+          {education[locale].map((item, index) => (
+            <CollegeItem key={index} education={item} />
+          ))}
+        </div>
 
-          <dl className="divide-y divide-slate-900">
-            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-100">{t('education.title')}</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-100 sm:col-span-2 sm:mt-o">{education[locale].map((item) => { return item.college }).slice(0, 1)}</dd>
-            </div>
-          </dl>
+        <div className="mt-6 mx-8 sm:mx-20 border-t border-gray-700">
+          <p className="my-4 text-3xl font-semibold leading-7">{t('experience.title')}</p>
+          {experiences[locale].map((item, index) => (
+            <ExperienceItem key={index} experience={item} />
+          ))}
+        </div>
+
+        <div className="mt-6 mx-8 sm:mx-20 border-t border-gray-700">
+          <p className="my-4 text-3xl font-semibold leading-7">{t('skills.title')}</p>
+          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <BadgeTechnologies technologies={skills} />
+          </div>
         </div>
       </div>
+      <FooterSection />
     </div>
   );
 }
