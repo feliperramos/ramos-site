@@ -34,10 +34,12 @@ export function parseContentfulBlogPost(
 
 interface FetchBlogPostsOptions {
   preview: boolean;
+  locale: string;
 }
 
 export async function fetchBlogPosts({
   preview,
+  locale,
 }: FetchBlogPostsOptions): Promise<BlogPost[]> {
   const contentful = contentfulClient({ preview });
 
@@ -45,6 +47,7 @@ export async function fetchBlogPosts({
     content_type: "blogPost",
     include: 2,
     order: ["fields.title"],
+    locale,
   });
 
   return blogPostResult.items.map(

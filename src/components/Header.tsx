@@ -68,7 +68,7 @@ export default function HeaderSection() {
                 <span className="sr-only">Open language menu</span>
                 <Image
                   className="h-6 w-8 rounded-full"
-                  src={language === "pt" ? BrazilIcon : USAIcon}
+                  src={language === "pt-BR" ? BrazilIcon : USAIcon}
                   alt="language"
                 />
               </Menu.Button>
@@ -94,10 +94,10 @@ export default function HeaderSection() {
                         alt="language"
                       />
                       <Link
-                        onClick={() => handleLanguage("pt")}
+                        onClick={() => handleLanguage("pt-BR")}
                         href="/"
                         className={classNames(active ? 'block px-4 py-2 text-sm text-cyan-500' : 'block px-4 py-2 text-sm text-gray-700')}
-                        locale="pt"
+                        locale="pt-BR"
                       >
                         {t('languages.pt-BR')}
                       </Link>
@@ -113,10 +113,10 @@ export default function HeaderSection() {
                         alt="language"
                       />
                       <Link
-                        onClick={() => handleLanguage("en")}
+                        onClick={() => handleLanguage("en-US")}
                         href="/"
                         className={classNames(active ? 'block px-4 py-2 text-sm text-cyan-500' : 'block px-4 py-2 text-sm text-gray-700')}
-                        locale="en"
+                        locale="en-US"
                       >
                         {t('languages.en-US')}
                       </Link>

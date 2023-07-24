@@ -5,11 +5,12 @@ import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import ExitDraftModeLink from './ExitDraftModeLink';
 import { fetchBlogPosts } from '@/contentful/blogPost';
+import { LanguageContext } from '@/hooks/useBlogPost';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export function generateStaticParams() {
-  return [{ locale: 'pt' }, { locale: 'en' }];
+  return [{ locale: 'pt-BR' }, { locale: 'en-US' }];
 }
 
 export const metadata = {
@@ -31,16 +32,19 @@ export default async function RootLayout({
     notFound();
   }
   return (
+
     <html lang={params.locale}>
       <body className={inter.className}>
-        <NextIntlClientProvider locale={params.locale} messages={messages}>
-          {draftMode().isEnabled && (
-            <p className='bg-orange-200 py-4 px-[6vw]'>
-              Draft mode is enabled! <ExitDraftModeLink className="underline" />
-            </p>
-          )}
-          {children}
-        </NextIntlClientProvider>
+        <LanguageContext.Provider value={{ locale: params.locale }}>
+          <NextIntlClientProvider locale={params.locale} messages={messages}>
+            {draftMode().isEnabled && (
+              <p className='bg-orange-200 py-4 px-[6vw]'>
+                Draft mode is enabled! <ExitDraftModeLink className="underline" />
+              </p>
+            )}
+            {children}
+          </NextIntlClientProvider>
+        </LanguageContext.Provider>
       </body>
     </html>
   )
