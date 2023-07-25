@@ -42,21 +42,23 @@ export default function HeaderSection() {
           </button>
         </div>
         <div className="lg:flex lg:flex-1 ">
-          <a href={`/${locale}/`} className="-m-1.5 p-1">
+          <a href="/" className="-m-1.5 p-1">
             <p className="text-3xl font-black">{`FELIPE </> RAMOS`}</p>
           </a>
         </div>
 
         <div className='hidden lg:flex lg:gap-x-12'>
-          {commonStrings.map((item, index) => (
-            <a
-              className="text-base font-semibold leading-6 text-white hover:text-cyan-400"
-              href={item.link}
-              key={index}
-            >
-              {item.value}
-            </a>
-          ))}
+          {commonStrings
+            .filter((item) => item.visible === true)
+            .map((item, index) => (
+              <a
+                className="text-base font-semibold leading-6 text-white hover:text-cyan-400"
+                href={item.link}
+                key={index}
+              >
+                {item.value}
+              </a>
+            ))}
         </div>
 
         <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -68,7 +70,7 @@ export default function HeaderSection() {
                 <span className="sr-only">Open language menu</span>
                 <Image
                   className="h-6 w-8 rounded-full"
-                  src={language === "pt" ? BrazilIcon : USAIcon}
+                  src={language === "pt-BR" ? BrazilIcon : USAIcon}
                   alt="language"
                 />
               </Menu.Button>
@@ -94,10 +96,10 @@ export default function HeaderSection() {
                         alt="language"
                       />
                       <Link
-                        onClick={() => handleLanguage("pt")}
+                        onClick={() => handleLanguage("pt-BR")}
                         href="/"
                         className={classNames(active ? 'block px-4 py-2 text-sm text-cyan-500' : 'block px-4 py-2 text-sm text-gray-700')}
-                        locale="pt"
+                        locale="pt-BR"
                       >
                         {t('languages.pt-BR')}
                       </Link>
@@ -113,10 +115,10 @@ export default function HeaderSection() {
                         alt="language"
                       />
                       <Link
-                        onClick={() => handleLanguage("en")}
+                        onClick={() => handleLanguage("en-US")}
                         href="/"
                         className={classNames(active ? 'block px-4 py-2 text-sm text-cyan-500' : 'block px-4 py-2 text-sm text-gray-700')}
-                        locale="en"
+                        locale="en-US"
                       >
                         {t('languages.en-US')}
                       </Link>
@@ -155,15 +157,17 @@ export default function HeaderSection() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                {commonStrings.map((item, index) => (
-                  <a
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:text-cyan-400"
-                    href={item.link}
-                    key={index}
-                  >
-                    {item.value}
-                  </a>
-                ))}
+                {commonStrings
+                  .filter((item) => item.visible === true)
+                  .map((item, index) => (
+                    <a
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:text-cyan-400"
+                      href={item.link}
+                      key={index}
+                    >
+                      {item.value}
+                    </a>
+                  ))}
               </div>
             </div>
           </div>

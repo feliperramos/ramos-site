@@ -8,24 +8,29 @@ export const getRouteName = () => {
 
   return [
     {
-      link: `${locale}/resume`,
+      link: `/resume`,
       value: t("menu.resume"),
+      visible: true,
     },
     {
-      link: `${locale}/blog`,
+      link: `/blog`,
       value: t("menu.blog"),
+      visible: false,
     },
     {
-      link: `${locale}/projects`,
+      link: `/projects`,
       value: t("menu.projects"),
+      visible: false,
     },
     {
-      link: `${locale}/contact`,
+      link: `/contact-me`,
       value: t("menu.contactMe"),
+      visible: true,
     },
     {
-      link: `${locale}/about-me`,
+      link: `/about-me`,
       value: t("menu.aboutMe"),
+      visible: false,
     },
   ];
 };

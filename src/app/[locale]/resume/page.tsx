@@ -1,8 +1,8 @@
 'use client';
 import { useTranslations, useLocale } from "next-intl";
-import HeaderSection from "@/components/Header";
 import { ResumeData } from "@/mock/resume";
 import { getAvatarData } from "@/utils/getAvatarData";
+import HeaderSection from "@/components/Header";
 import CollegeItem from "@/components/Resume/College";
 import ExperienceItem from "@/components/Resume/Experiences";
 import { BadgeTechnologies } from "@/components/Resume/Badges";

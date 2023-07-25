@@ -16,7 +16,7 @@ export const ResumeData: MockProps = {
     },
   },
   education: {
-    pt: [
+    "pt-BR": [
       {
         degree: "Análise e Desenvolvimento de Sistemas",
         college: "Universidade de Sorocaba",
@@ -32,7 +32,7 @@ export const ResumeData: MockProps = {
         status: "Incompleta",
       },
     ],
-    en: [
+    "en-US": [
       {
         degree: "Analysis and Systems Development",
         college: "Sorocaba University",
@@ -50,9 +50,7 @@ export const ResumeData: MockProps = {
     ],
   },
   experiences: {
-    // I need this comment, because the typing error in experiences don't work well like education. the two types has the same logic.
-    // @ts-ignore
-    pt: [
+    "pt-BR": [
       {
         company: "ACCT Global / Quality Digital",
         role: "Desenvolvedor FrontEnd Pleno",
@@ -156,7 +154,7 @@ export const ResumeData: MockProps = {
         companyLink: "https://www.unimedsorocaba.coop.br/",
       },
     ],
-    en: [
+    "en-US": [
       {
         company: "ACCT Global / Quality Digital",
         role: "FrontEnd Mid-Level Developer",
