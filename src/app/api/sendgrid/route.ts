@@ -3,7 +3,7 @@ import { SENDGRID_APIKEY } from "@/constants";
 
 sendgrid.setApiKey(SENDGRID_APIKEY);
 
-export default async function sendEmail(req: Request, res: Response) {
+export default async function POST(req: Request, res: Response) {
   await sendgrid.send({
     to: "feliperramos@icloud.com",
     from: "feliperramos@icloud.com",
