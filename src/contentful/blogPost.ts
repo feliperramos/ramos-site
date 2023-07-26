@@ -14,6 +14,7 @@ export interface BlogPost {
   publishDate: string | null;
   author: string | null;
   category: string | null;
+  linkReference: string | null;
 }
 
 export function parseContentfulBlogPost(
@@ -29,6 +30,7 @@ export function parseContentfulBlogPost(
     publishDate: blogPostEntry.fields.publishDate || null,
     author: blogPostEntry.fields.author || "",
     category: blogPostEntry.fields.category || "",
+    linkReference: blogPostEntry.fields.linkReference || "",
   };
 }
 

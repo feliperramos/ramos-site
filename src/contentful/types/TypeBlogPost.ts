@@ -14,6 +14,7 @@ export interface TypeBlogPostFields {
   publishDate?: EntryFieldTypes.Date;
   author?: EntryFieldTypes.Symbol;
   category?: EntryFieldTypes.Symbol;
+  linkReference?: EntryFieldTypes.Symbol;
 }
 
 export type TypeBlogPostSkeleton = EntrySkeletonType<

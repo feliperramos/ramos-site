@@ -38,11 +38,13 @@ export default function FooterSection() {
           <dl className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:pt-2">
             <div className="flex flex-col items-start">
               <dt className="mt-4 font-semibold text-white">{t('titleMenu')}</dt>
-              {commonStrings.map((item, index) => (
-                <a key={index} href={item.link}>
-                  <dd className="mt-2 leading-7 text-gray-300 hover:text-sky-600">{item.value}</dd>
-                </a>
-              ))}
+              {commonStrings
+                .filter((item) => item.visible === true)
+                .map((item, index) => (
+                  <a key={index} href={item.link}>
+                    <dd className="mt-2 leading-7 text-gray-300 hover:text-sky-600">{item.value}</dd>
+                  </a>
+                ))}
             </div>
             <div className="flex flex-col items-start">
               <dt className="mt-4 font-semibold text-white">{t('titleSocialMedia')}</dt>

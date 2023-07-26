@@ -1,5 +1,5 @@
 'use client'
-import HeaderSection from "@/components/Header";
+import { FooterSection, HeaderSection } from "@/components";
 
 export default function AboutMe() {
   return (
@@ -10,6 +10,7 @@ export default function AboutMe() {
           <h1>About Me Page</h1>
         </div>
       </main>
+      <FooterSection />
     </div>
   )
 }

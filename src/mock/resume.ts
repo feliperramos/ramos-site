@@ -11,12 +11,14 @@ export const ResumeData: MockProps = {
   },
   intro: {
     description: {
-      pt: "Estou sempre buscando aprimorar meus conhecimentos, já trabalhei com banco de dados e tecnologias como Delphi, C#, React e sou apaixonado por Javascript/Typescript. Estou procurando aprofundar meus conhecimentos em desenvolvimento back-end e front-end para expandir minhas habilidades.",
-      en: "I am always seeking to improve my knowledge, having worked with databases and technologies such as Delphi, C#, React, and I am passionate about JavaScript/TypeScript. I am looking to further my expertise in back-end and front-end development to expand my skills.",
+      "pt-BR":
+        "Estou sempre buscando aprimorar meus conhecimentos, já trabalhei com banco de dados e tecnologias como Delphi, C#, React e sou apaixonado por Javascript/Typescript. Estou procurando aprofundar meus conhecimentos em desenvolvimento back-end e front-end para expandir minhas habilidades.",
+      "en-US":
+        "I am always seeking to improve my knowledge, having worked with databases and technologies such as Delphi, C#, React, and I am passionate about JavaScript/TypeScript. I am looking to further my expertise in back-end and front-end development to expand my skills.",
     },
   },
   education: {
-    pt: [
+    "pt-BR": [
       {
         degree: "Análise e Desenvolvimento de Sistemas",
         college: "Universidade de Sorocaba",
@@ -32,7 +34,7 @@ export const ResumeData: MockProps = {
         status: "Incompleta",
       },
     ],
-    en: [
+    "en-US": [
       {
         degree: "Analysis and Systems Development",
         college: "Sorocaba University",
@@ -50,9 +52,7 @@ export const ResumeData: MockProps = {
     ],
   },
   experiences: {
-    // I need this comment, because the typing error in experiences don't work well like education. the two types has the same logic.
-    // @ts-ignore
-    pt: [
+    "pt-BR": [
       {
         company: "ACCT Global / Quality Digital",
         role: "Desenvolvedor FrontEnd Pleno",
@@ -156,7 +156,7 @@ export const ResumeData: MockProps = {
         companyLink: "https://www.unimedsorocaba.coop.br/",
       },
     ],
-    en: [
+    "en-US": [
       {
         company: "ACCT Global / Quality Digital",
         role: "FrontEnd Mid-Level Developer",

@@ -11,6 +11,7 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.17.0",
     "@headlessui/react": "^1.7.15",
+    "@sendgrid/mail": "^7.7.0",
     "@tailwindcss/forms": "^0.5.4",
     "@types/node": "20.4.0",
     "@types/react": "18.2.14",
@@ -19,6 +20,8 @@
     "contentful": "^10.3.1",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.8",
+    "flowbite": "^1.7.0",
+    "flowbite-react": "^0.5.0",
     "next": "13.4.8",
     "next-intl": "^2.19.0",
     "postcss": "8.4.24",

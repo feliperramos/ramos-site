@@ -9,7 +9,7 @@ import { fetchBlogPosts } from '@/contentful/blogPost';
 const inter = Inter({ subsets: ['latin'] });
 
 export function generateStaticParams() {
-  return [{ locale: 'pt' }, { locale: 'en' }];
+  return [{ locale: 'pt-BR' }, { locale: 'en-US' }];
 }
 
 export const metadata = {
