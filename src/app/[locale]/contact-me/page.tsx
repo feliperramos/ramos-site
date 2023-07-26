@@ -1,5 +1,6 @@
 "use client";
 import { FormEvent, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 
 import { FooterSection, HeaderSection } from "@/components";
 
@@ -9,16 +10,19 @@ interface ContactFormProps {
   subject: string;
   contactType: string;
   message: string;
+  lang: string;
 }
 
-
 export default function ContactMe() {
+  const t = useTranslations("contactMe");
+  const locale = useLocale();
   const [formData, setFormData] = useState<ContactFormProps>({
     fullName: "",
     email: "",
     subject: "",
-    contactType: "Business",
+    contactType: t("form.contactOptions.business"),
     message: "",
+    lang: locale
   });
   const [validation, setValidation] = useState<Boolean | string>("");
 
@@ -38,10 +42,10 @@ export default function ContactMe() {
     <div className="font-mono bg-slate-900 ">
       <HeaderSection />
       <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-        <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center">Contact Me</h2>
+        <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center">{t("title")}</h2>
         <form className="space-y-8" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-300">Full Name</label>
+            <label htmlFor="fullName" className="block mb-2 text-sm font-medium text-gray-300">{t("form.fullName")}</label>
             <input
               required
               type="text"
@@ -49,12 +53,12 @@ export default function ContactMe() {
               id="fullName"
               autoComplete="fullName"
               className="shadow-sm bg-white/5 border-0.5 border-white/10 text-gray-300 text-sm rounded-md focus:ring-sky-600 focus:border-primary-500 block w-full p-2.5 placeholder:text-gray-600"
-              placeholder="John Doe"
+              placeholder={t("form.fullNamePlaceholder")}
               onChange={handleChange}
             />
           </div>
           <div>
-            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-300">Email</label>
+            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-300">{t("form.email")}</label>
             <input
               required
               type="email"
@@ -62,12 +66,12 @@ export default function ContactMe() {
               id="email"
               autoComplete="email"
               className="shadow-sm bg-white/5 border-0.5 border-white/10 text-gray-300 text-sm rounded-md focus:ring-sky-600 focus:border-primary-500 block w-full p-2.5 placeholder:text-gray-600"
-              placeholder="email@example.com"
+              placeholder={t("form.emailPlaceholder")}
               onChange={handleChange}
             />
           </div>
           <div>
-            <label htmlFor="subject" className="block mb-2 text-sm font-medium text-gray-300">Subject</label>
+            <label htmlFor="subject" className="block mb-2 text-sm font-medium text-gray-300">{t("form.subject")}</label>
             <input
               required
               type="text"
@@ -75,34 +79,34 @@ export default function ContactMe() {
               id="subject"
               autoComplete="off"
               className="shadow-sm bg-white/5 border-0.5 border-white/10 text-gray-300 text-sm rounded-md focus:ring-sky-600 focus:border-primary-500 block w-full p-2.5 placeholder:text-gray-600"
-              placeholder="Subject"
+              placeholder={t("form.subject")}
               onChange={handleChange}
             />
           </div>
           <div>
-            <label htmlFor="contactType" className="block mb-2 text-sm font-medium text-gray-300">Type of Contact</label>
+            <label htmlFor="contactType" className="block mb-2 text-sm font-medium text-gray-300">{t("form.typeOfContact")}</label>
             <select
               id="contactType"
               name="contactType"
               className="shadow-sm bg-white/5 text-gray-300 text-sm rounded-md focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 dark:border-white/10 dark:placeholder-gray-300 dark:text-gray-300 dark:focus:ring-blue-500 dark:focus:border-blue-500"
               onChange={handleChange}
             >
-              <option className="text-gray-600 bg-white/5" value="Business">Business</option>
-              <option className="text-gray-600 bg-white/5" value="Freelancer">Freelancer</option>
-              <option className="text-gray-600 bg-white/5" value="Personal">Personal</option>
-              <option className="text-gray-600 bg-white/5" value="Hobby">Hobby</option>
-              <option className="text-gray-600 bg-white/5" value="Take a Time">Take a time</option>
+              <option className="text-gray-600 bg-white/5" value={t("form.contactOptions.business")}>{t("form.contactOptions.business")}</option>
+              <option className="text-gray-600 bg-white/5" value={t("form.contactOptions.freelancer")}>{t("form.contactOptions.freelancer")}</option>
+              <option className="text-gray-600 bg-white/5" value={t("form.contactOptions.personal")}>{t("form.contactOptions.personal")}</option>
+              <option className="text-gray-600 bg-white/5" value={t("form.contactOptions.hobby")}>{t("form.contactOptions.hobby")}</option>
+              <option className="text-gray-600 bg-white/5" value={t("form.contactOptions.takeTime")}>{t("form.contactOptions.takeTime")}</option>
             </select>
           </div>
           <div>
-            <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-300">Message</label>
+            <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-300">{t("form.message")}</label>
             <textarea
               required
               id="message"
               name="message"
               rows={6}
               className="block p-2.5 w-full text-sm text-gray-300 bg-white/5 rounded-md shadow-sm border-0.5 border-white/10 focus:ring-sky-600 focus:border-sky-600 dark:placeholder-gray-400 dark:text-gray-300"
-              placeholder="Leaver a message..."
+              placeholder={t("form.messagePlaceholder")}
               onChange={handleChange}
             />
           </div>
@@ -110,7 +114,7 @@ export default function ContactMe() {
             type="submit"
             className="flex-none rounded-md bg-sky-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus:visible:outline-offset-2 focus-visible:outline-sky-700"
           >
-            Send message
+            {t("form.sendButton")}
           </button>
 
           {validation === true &&
@@ -121,7 +125,7 @@ export default function ContactMe() {
                 </svg>
                 <span className="sr-only">Info</span>
                 <div>
-                  <span className="font-medium">Email sent Successfully</span> I will contact soon.
+                  {t.rich('form.alertSuccess', { item: (chunck) => <span className="font-medium">{chunck}</span> })}
                 </div>
               </div>
             )}
@@ -133,7 +137,7 @@ export default function ContactMe() {
                 </svg>
                 <span className="sr-only">Info</span>
                 <div>
-                  <span className="font-medium">Error to send Email</span> Change a few things up and try submitting again.
+                  {t.rich('form.alertFailure', { item: (chunck) => <span className="font-medium">{chunck}</span> })}
                 </div>
               </div>
             )}

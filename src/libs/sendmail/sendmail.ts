@@ -8,6 +8,7 @@ interface MailProps {
   subject: string;
   contactType: string;
   message: string;
+  lang: string;
 }
 
 export const sendEmail = async ({
@@ -16,6 +17,7 @@ export const sendEmail = async ({
   subject,
   contactType,
   message,
+  lang,
 }: MailProps) => {
   sendmail.setApiKey(SENDGRID_APIKEY);
 
@@ -25,11 +27,12 @@ export const sendEmail = async ({
     subject,
     contactType,
     message,
+    lang,
   });
 
   const msgEmail = {
     to,
-    cc: EMAIL,
+    bcc: EMAIL,
     from: EMAIL,
     subject,
     html: formattedEmail,
@@ -38,6 +41,6 @@ export const sendEmail = async ({
   try {
     await sendmail.send(msgEmail);
   } catch (err) {
-    console.error(err);
+    console.log(err);
   }
 };

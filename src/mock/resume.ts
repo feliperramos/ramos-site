@@ -11,8 +11,10 @@ export const ResumeData: MockProps = {
   },
   intro: {
     description: {
-      pt: "Estou sempre buscando aprimorar meus conhecimentos, já trabalhei com banco de dados e tecnologias como Delphi, C#, React e sou apaixonado por Javascript/Typescript. Estou procurando aprofundar meus conhecimentos em desenvolvimento back-end e front-end para expandir minhas habilidades.",
-      en: "I am always seeking to improve my knowledge, having worked with databases and technologies such as Delphi, C#, React, and I am passionate about JavaScript/TypeScript. I am looking to further my expertise in back-end and front-end development to expand my skills.",
+      "pt-BR":
+        "Estou sempre buscando aprimorar meus conhecimentos, já trabalhei com banco de dados e tecnologias como Delphi, C#, React e sou apaixonado por Javascript/Typescript. Estou procurando aprofundar meus conhecimentos em desenvolvimento back-end e front-end para expandir minhas habilidades.",
+      "en-US":
+        "I am always seeking to improve my knowledge, having worked with databases and technologies such as Delphi, C#, React, and I am passionate about JavaScript/TypeScript. I am looking to further my expertise in back-end and front-end development to expand my skills.",
     },
   },
   education: {
