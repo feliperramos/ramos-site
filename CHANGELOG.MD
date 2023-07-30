@@ -7,6 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2023-07-26
+
+### Changed
+
+- Hide a component that still doesn't work.
+
+## [1.0.0] - 2023-07-26
+
+### Added
+
+- Contact Me Screen
+- Add SendGrid on api route to send email from contact form.
+- Add a template email in multilanguage
+- Add FlowBite for tailwind some component
+
+### Fixed
+
+- Language Code pt -> pt-BR
+- Language Code en -> en-US
+- fix mock data for this new codes
+
+### Changed
+
+- Hide some menu options
+- Hide BlogPosts link in home
+- Refactor some components imports, typings and functions
+
 ## [0.3.0] - 2023-07-21
 
 ### Added

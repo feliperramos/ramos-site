@@ -1,7 +1,7 @@
 {
   "header": {
     "menu": {
-      "resume": "cv",
+      "resume": "currículo",
       "blog": "blog",
       "projects": "projetos",
       "contactMe": "contato",
@@ -81,6 +81,38 @@
       "certificationName": "Nome do Certificado",
       "certificationType": "Tipo de Certificação",
       "expirationDate": "Data de Expiração"
+    }
+  },
+  "contactMe": {
+    "title": "Me Contate",
+    "form": {
+      "fullName": "Nome Completo",
+      "fullNamePlaceholder": "João Silva",
+      "email": "Email",
+      "emailPlaceholder": "email@exemplo.com",
+      "subject": "Assunto",
+      "typeOfContact": "Tipo de Contato",
+      "contactOptions": {
+        "business": "Profissional",
+        "freelancer": "Freelancer",
+        "personal": "Pessoal",
+        "hobby": "Hobby",
+        "takeTime": "Assuntos Diversos"
+      },
+      "message": "Mensagem",
+      "messagePlaceholder": "Deixe uma mensagem...",
+      "sendButton": "Enviar Mensagem",
+      "alertSuccess": "<item>Email enviado com sucesso</item>. Em breve entrarei em contato.",
+      "alertFailure": "<item>Erro ao enviar mensagem</item>. Mude alguma coisa acima e tente novamente."
+    },
+    "emailTemplate": {
+      "title": "Seu Email foi enviado com sucesso!",
+      "subtitle": "Obrigado {fullName}, por me contatar! Entrarei em contato em breve!",
+      "yourEmail": "Seu Email:",
+      "message": "Mensagem",
+      "subject": "Assunto:",
+      "regards": "Atenciosamente",
+      "role": "Desenvolvedor FrontEnd"
     }
   }
 }

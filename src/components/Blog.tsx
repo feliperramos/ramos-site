@@ -4,12 +4,14 @@ import type { BlogPost } from "@/contentful/blogPost";
 import { getFormattedDate } from "@/utils/getFormattedDate";
 import { getAvatarData } from "@/utils/getAvatarData";
 import { useLocale, useTranslations } from 'next-intl';
+import { useState } from "react";
 
 interface BlogSection {
   posts: BlogPost[];
 }
 
 export default function BlogSection({ posts }: BlogSection) {
+  const [visible] = useState(false);
   const t = useTranslations('blog');
   const locale = useLocale();
 
@@ -37,7 +39,7 @@ export default function BlogSection({ posts }: BlogSection) {
                 <div className="mx-auto flex justify-center content-center items-center gap-x-1">
                 </div>
                 <div className="group relative">
-                  <a href={`${locale}/blog/${item.slug}`}>
+                  <a href={`/blog/${item.slug}`}>
                     <h3 className="mt-3 text-2xl font-bold leading-6 text-sky-800 hover:text-sky-700">
                       {item.title}
                     </h3>
@@ -50,9 +52,7 @@ export default function BlogSection({ posts }: BlogSection) {
                     <img srcSet={getAvatarData.avatar} src={getAvatarData.avatar} alt="" className="h-10 w-10 rounded-full bg-gray-50" />
                     <div className="text-sm leading-6">
                       <p className="font-semibold text-gray-400">
-                        <a href={`${locale}/about-me`}>
-                          {getAvatarData.name}
-                        </a>
+                        {getAvatarData.name}
                       </p>
                       <p>{getAvatarData.description}</p>
                     </div>
@@ -60,7 +60,7 @@ export default function BlogSection({ posts }: BlogSection) {
 
                 </div>
                 <div className="mt-2 flex justify-start items-start gap-x-4 text-xs">
-                  <a href={`${locale}/blog/${item.slug}`} className="font-semibold text-sky-800 text-base hover:text-sky-700">
+                  <a href={`/blog/${item.slug}`} className="font-semibold text-sky-800 text-base hover:text-sky-700">
                     {t('buttonReadMore')} <span aria-hidden="true">&rarr;</span>
                   </a>
                 </div>
@@ -69,11 +69,13 @@ export default function BlogSection({ posts }: BlogSection) {
           )).slice(0, 3)}
         </div>
 
-        <div className="my-auto mt-10 flex flex-col max-w-2xl border-t border-gray-200 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none">
-          <a href={`${locale}/blog`} className="font-semibold text-sky-800 text-xl hover:text-sky-700">
-            {t('buttonSeeMorePosts')} <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
+        {visible && (
+          <div className="my-auto mt-10 flex flex-col max-w-2xl border-t border-gray-200 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none">
+            <a href={`${locale}/blog`} className="font-semibold text-sky-800 text-xl hover:text-sky-700">
+              {t('buttonSeeMorePosts')} <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

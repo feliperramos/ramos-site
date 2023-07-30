@@ -82,5 +82,37 @@
       "certificationType": "Type",
       "expirationDate": "Expiration"
     }
+  },
+  "contactMe": {
+    "title": "Contact Me",
+    "form": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "John Doe",
+      "email": "Email",
+      "emailPlaceholder": "email@example.com",
+      "subject": "Subject",
+      "typeOfContact": "Type of Contact",
+      "contactOptions": {
+        "business": "Business",
+        "freelancer": "Freelancer",
+        "personal": "Personal",
+        "hobby": "Hobby",
+        "takeTime": "Take a Time"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Leave a message...",
+      "sendButton": "Send Message",
+      "alertSuccess": "<item>Email sent Successfully</item> I will contact soon.",
+      "alertFailure": "<item>Error to send Email</item> Change a few things up and try submitting again."
+    },
+    "emailTemplate": {
+      "title": "Your Email has sent successful!",
+      "subtitle": "Thank you {fullName}, for contact me! I'll answer your soon!",
+      "yourEmail": "Your Email:",
+      "message": "Message:",
+      "subject": "Subject:",
+      "regards": "Regards",
+      "role": "FrontEnd Developer"
+    }
   }
 }
