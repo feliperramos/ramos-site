@@ -1,7 +1,8 @@
 import { Metadata, ResolvingMetadata } from "next";
+import { useLocale } from "next-intl";
 import { draftMode } from "next/headers";
 import { notFound } from 'next/navigation';
-import { fetchBlogPost, fetchBlogPosts } from "@/contentful/blogPost";
+import { fetchBlogPost } from "@/contentful/blogPost";
 import Link from "next/link";
 import RichText from '@/contentful/RichText';
 import { FooterSection, HeaderSection } from "@/components";
@@ -15,7 +16,9 @@ interface BlogPostPageProps {
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps, parent: ResolvingMetadata): Promise<Metadata> {
-  const blogPost = await fetchBlogPost({ slug: params.slug, preview: draftMode().isEnabled });
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const locale = useLocale()
+  const blogPost = await fetchBlogPost({ slug: params.slug, preview: draftMode().isEnabled, locale });
 
   if (!blogPost)
     return notFound();
@@ -26,7 +29,8 @@ export async function generateMetadata({ params }: BlogPostPageProps, parent: Re
 }
 
 async function BlogPostPage({ params }: BlogPostPageProps) {
-  const blogPost = await fetchBlogPost({ slug: params.slug, preview: draftMode().isEnabled });
+  const locale = useLocale()
+  const blogPost = await fetchBlogPost({ slug: params.slug, preview: draftMode().isEnabled, locale });
 
   if (!blogPost)
     return notFound();
