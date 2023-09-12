@@ -1,15 +1,11 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import { draftMode } from 'next/headers';
-import { NextIntlClientProvider } from 'next-intl';
+import { NextIntlClientProvider, useLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import ExitDraftModeLink from './ExitDraftModeLink';
 
 const inter = Inter({ subsets: ['latin'] });
-
-export function generateStaticParams() {
-  return [{ locale: 'pt-BR' }, { locale: 'en-US' }];
-}
 
 export const metadata = {
   title: 'Dev Felipe Ramos',
