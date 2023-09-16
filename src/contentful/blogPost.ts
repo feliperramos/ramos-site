@@ -48,7 +48,7 @@ export async function fetchBlogPosts({
   const blogPostResult = await contentful.getEntries<TypeBlogPostSkeleton>({
     content_type: "blogPost",
     include: 2,
-    order: ["fields.publishDate"],
+    order: ["-fields.publishDate"],
     locale,
   });
 
