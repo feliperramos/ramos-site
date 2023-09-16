@@ -26,7 +26,10 @@
     "title": "blog",
     "description": "Novas features, projetos, videos no canal do youtube e hobbies",
     "buttonReadMore": "leia mais",
-    "buttonSeeMorePosts": "veja mais publicações"
+    "buttonSeeMorePosts": "veja mais publicações",
+    "content": {
+      "description": "Descrição"
+    }
   },
   "footer": {
     "title": "Deixe seu email para contato",

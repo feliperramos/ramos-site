@@ -6,6 +6,8 @@ import { fetchBlogPost } from "@/contentful/blogPost";
 import Link from "next/link";
 import RichText from '@/contentful/RichText';
 import { FooterSection, HeaderSection } from "@/components";
+import { getTranslator } from "next-intl/server";
+import { getYoutubeVideoId } from "@/utils/getYoutubeVideoId";
 
 interface BlogPostPageParams {
   slug: string;
@@ -19,7 +21,6 @@ export async function generateMetadata({ params }: BlogPostPageProps, parent: Re
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const locale = useLocale()
   const blogPost = await fetchBlogPost({ slug: params.slug, preview: draftMode().isEnabled, locale });
-
   if (!blogPost)
     return notFound();
 
@@ -31,6 +32,7 @@ export async function generateMetadata({ params }: BlogPostPageProps, parent: Re
 async function BlogPostPage({ params }: BlogPostPageProps) {
   const locale = useLocale()
   const blogPost = await fetchBlogPost({ slug: params.slug, preview: draftMode().isEnabled, locale });
+  const t = await getTranslator(locale, 'blog');
 
   if (!blogPost)
     return notFound();
@@ -38,22 +40,21 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <>
       <HeaderSection />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-slate-900">
-        <Link href="/">← Posts</Link>
-        <div className="prose mt-8 border-t pt-8">
-          {blogPost.image && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={blogPost.image.src}
-              srcSet={`${blogPost.image.src}`}
-              alt={blogPost.image.alt}
-            />
-          )}
-          <h1>{blogPost.title}</h1>
-          <RichText document={blogPost.body} />
-          <a href={blogPost.linkReference!}>Watch on Youtube</a>
-        </div>
+      <main className="flex min-h-screen flex-col justify-between p-24 bg-slate-900">
+        <Link href="/blog" className="text-left text-2xl font-extrabold text-cyan-600">← Posts</Link>
+        <div className="prose mt-8 border-t pt-8 items-center">
+          <h1 className="mb-8 text-center text-4xl font-black text-cyan-600">{blogPost.title}</h1>
+          {blogPost.linkReference && <iframe
+            className="mb-8 w-full min-h-screen"
+            src={`https://www.youtube.com/embed/${getYoutubeVideoId(blogPost.linkReference)}`}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+          </iframe>}
 
+          <p className="mb-2 text-gray-200 font-medium text-xl">{t('content.description')}</p>
+          <span className="text-gray-300 font-normal text-lg text-justify"><RichText document={blogPost.body} /></span>
+
+        </div>
       </main>
       <FooterSection />
     </>
