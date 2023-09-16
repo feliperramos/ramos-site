@@ -36,17 +36,20 @@ export function parseContentfulBlogPost(
 
 interface FetchBlogPostsOptions {
   preview: boolean;
+  locale: string;
 }
 
 export async function fetchBlogPosts({
   preview,
+  locale,
 }: FetchBlogPostsOptions): Promise<BlogPost[]> {
   const contentful = contentfulClient({ preview });
 
   const blogPostResult = await contentful.getEntries<TypeBlogPostSkeleton>({
     content_type: "blogPost",
     include: 2,
-    order: ["fields.title"],
+    order: ["-fields.publishDate"],
+    locale,
   });
 
   return blogPostResult.items.map(
@@ -57,11 +60,13 @@ export async function fetchBlogPosts({
 interface FetchBlogPostOption {
   slug: string;
   preview: boolean;
+  locale: string;
 }
 
 export async function fetchBlogPost({
   slug,
   preview,
+  locale,
 }: FetchBlogPostOption): Promise<BlogPost | null> {
   const contentful = contentfulClient({ preview });
 
@@ -69,6 +74,7 @@ export async function fetchBlogPost({
     content_type: "blogPost",
     "fields.slug": slug,
     include: 2,
+    locale,
   });
 
   return parseContentfulBlogPost(blogPostResult.items[0]);

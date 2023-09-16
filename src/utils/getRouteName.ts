@@ -15,7 +15,7 @@ export const getRouteName = () => {
     {
       link: `/blog`,
       value: t("menu.blog"),
-      visible: false,
+      visible: true,
     },
     {
       link: `/projects`,

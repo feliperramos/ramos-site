@@ -6,13 +6,13 @@ import {
 } from "../constants";
 
 const client = createClient({
-  space: CONTENTFUL_SPACE_ID!,
-  accessToken: CONTENTFUL_ACCESS_TOKEN!,
+  space: CONTENTFUL_SPACE_ID,
+  accessToken: CONTENTFUL_ACCESS_TOKEN,
 });
 
 const previewClient = createClient({
-  space: CONTENTFUL_SPACE_ID!,
-  accessToken: CONTENTFUL_PREVIEW_ACCESS_TOKEN!,
+  space: CONTENTFUL_SPACE_ID,
+  accessToken: CONTENTFUL_PREVIEW_ACCESS_TOKEN,
   host: "preview.contentful.com",
 });
 

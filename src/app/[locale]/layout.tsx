@@ -1,16 +1,11 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import { draftMode } from 'next/headers';
-import { NextIntlClientProvider } from 'next-intl';
+import { NextIntlClientProvider, useLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import ExitDraftModeLink from './ExitDraftModeLink';
-import { fetchBlogPosts } from '@/contentful/blogPost';
 
 const inter = Inter({ subsets: ['latin'] });
-
-export function generateStaticParams() {
-  return [{ locale: 'pt-BR' }, { locale: 'en-US' }];
-}
 
 export const metadata = {
   title: 'Dev Felipe Ramos',
@@ -31,6 +26,7 @@ export default async function RootLayout({
     notFound();
   }
   return (
+
     <html lang={params.locale}>
       <body className={inter.className}>
         <NextIntlClientProvider locale={params.locale} messages={messages}>
