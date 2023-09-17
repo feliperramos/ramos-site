@@ -43,7 +43,7 @@ export default function HeaderSection() {
         </div>
         <div className="lg:flex lg:flex-1 ">
           <a href="/" className="-m-1.5 p-1">
-            <p className="text-3xl font-black">{`FELIPE </> RAMOS`}</p>
+            <p className="lg:text-3xl text-2xl font-black">{`FELIPE </> RAMOS`}</p>
           </a>
         </div>
 

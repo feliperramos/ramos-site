@@ -40,15 +40,17 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <>
       <HeaderSection />
-      <main className="flex min-h-screen flex-col justify-between p-24 bg-slate-900">
+      <main className="flex min-h-screen flex-col justify-between p-8 lg:p-24 bg-slate-900">
         <Link href="/blog" className="text-left text-2xl font-extrabold text-cyan-600">← Posts</Link>
         <div className="prose mt-8 border-t pt-8 items-center">
           <h1 className="mb-8 text-center text-4xl font-black text-cyan-600">{blogPost.title}</h1>
           {blogPost.linkReference && <iframe
-            className="mb-8 w-full min-h-screen"
+            className="mb-8 w-full lg:min-h-screen h-60"
             src={`https://www.youtube.com/embed/${getYoutubeVideoId(blogPost.linkReference)}`}
             title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          >
           </iframe>}
 
           <p className="mb-2 text-gray-200 font-medium text-xl">{t('content.description')}</p>

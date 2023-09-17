@@ -11,12 +11,12 @@ async function BlogPostPage() {
   const locale = useLocale()
   const blogPosts = await fetchBlogPosts({ preview: draftMode().isEnabled, locale: locale });
   const t = await getTranslator(locale, 'blog');
-  const { name, avatar, description } = getAvatarData;
+  const { name, avatar } = getAvatarData;
 
   return (
     <>
       <HeaderSection />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-slate-900">
+      <main className="flex min-h-screen flex-col items-center justify-between p-8 lg:p-24 bg-slate-900">
         <section className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
           <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
             <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-white">{t('title')}</h2>
