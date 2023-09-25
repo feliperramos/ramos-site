@@ -1,9 +1,10 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import { draftMode } from 'next/headers';
-import { NextIntlClientProvider, useLocale } from 'next-intl';
+import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import ExitDraftModeLink from './ExitDraftModeLink';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -29,14 +30,17 @@ export default async function RootLayout({
 
     <html lang={params.locale}>
       <body className={inter.className}>
-        <NextIntlClientProvider locale={params.locale} messages={messages}>
-          {draftMode().isEnabled && (
-            <p className='bg-orange-200 py-4 px-[6vw]'>
-              Draft mode is enabled! <ExitDraftModeLink className="underline" />
-            </p>
-          )}
-          {children}
-        </NextIntlClientProvider>
+        <>
+          <NextIntlClientProvider locale={params.locale} messages={messages}>
+            {draftMode().isEnabled && (
+              <p className='bg-orange-200 py-4 px-[6vw]'>
+                Draft mode is enabled! <ExitDraftModeLink className="underline" />
+              </p>
+            )}
+            {children}
+          </NextIntlClientProvider>
+          <Analytics />
+        </>
       </body>
     </html>
   )

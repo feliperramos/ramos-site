@@ -19,7 +19,7 @@ export default function AboutMeSection() {
             <div className="lg:max-w-lg">
               <p className="mt-2 text-3xl font-bold trackin-tight text-sky-800 sm:text-4xl">{t('title')}</p>
               <span className="mt-6 text-lg leading-8 text-gray-400 text-justify">
-                {t.rich('description', { item: (chunck) => <p>{chunck}</p> })}
+                {t.rich('description', { item: (chunck) => <p className="mt-4">{chunck}</p> })}
               </span>
 
               <div className="grid grid-cols-2 my-5">
