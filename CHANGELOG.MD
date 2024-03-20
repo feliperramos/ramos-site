@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2024-04-19
+
+- add new project to project section
+
 ## [1.1.1] - 2023-09-16
 
 - fix Header Title size because in somme devices is weird
