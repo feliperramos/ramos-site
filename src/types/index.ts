@@ -51,3 +51,20 @@ export interface TechnologiesProps {
   skillLevel?: string;
   yearsofExperience?: number;
 }
+
+export interface ServicesLanguageProps {
+  [key: string]: ServicesProps[];
+}
+
+export interface ServicesProps {
+  title: string;
+  description: string;
+  price: number | string;
+  features: FeatureProps[];
+  whatsappMessage: string;
+}
+
+export interface FeatureProps {
+  title: string;
+  description: string;
+}

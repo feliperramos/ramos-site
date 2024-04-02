@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.2.0] - 2024-04-19
+## [1.3.0]- 2024-04-01
+
+- Add new page /services
+- New component ScheduleButton
+  - This button is a component used to contact using whatsapp
+- New .env property
+- util getFormattedPrice
+
+## [1.2.0] - 2024-03-19
 
 - add new project to project section
 

@@ -8,4 +8,5 @@ export const CONTENTFUL_PREVIEW_SECRET =
 export const WHATSAPP_PHONE_LINK =
   process.env.NEXT_PUBLIC_WHATSAPP_PHONE_LINK || "";
 export const EMAIL = process.env.NEXT_PUBLIC_EMAIL || "";
+export const PHONE_NUMBER = process.env.NEXT_PUBLIC_PHONENUMBER || "";
 export const SENDGRID_APIKEY = process.env.SENDGRID_API_KEY || "";

@@ -1,5 +1,5 @@
 import { WHATSAPP_PHONE_LINK, EMAIL } from "@/constants";
-import { MockProps } from "@/types";
+import { MockProps, ServicesLanguageProps } from "@/types";
 
 export const ResumeData: MockProps = {
   personal: {
@@ -304,5 +304,205 @@ export const ResumeData: MockProps = {
     { technology: "ASP.NET", skillLevel: "Beginner", yearsofExperience: 2 },
     { technology: "HTML", skillLevel: "Expert", yearsofExperience: 6 },
     { technology: "Git", skillLevel: "Advanced", yearsofExperience: 4 },
+  ],
+};
+
+export const ServicesData: ServicesLanguageProps = {
+  "pt-BR": [
+    {
+      title: "Básico",
+      description: "Site Profissional ou LandingPage básica.",
+      price: 599.9,
+      features: [
+        {
+          title: "Página Única",
+          description:
+            "Site com uma única página reunindo todas as informações necessárias do profissional, empresa ou serviço",
+        },
+        {
+          title: "Até 4 seções",
+          description:
+            "Sua página com até 4 (quatro) seções diferentes para expor seu perfil, empresa ou serviço.",
+        },
+        {
+          title: "Botão de Contato",
+          description:
+            "Um botão flutuante acessível para que seus clientes possam entrar em contato via Whatsapp, Email, Telegram, ou qualquer outra plataforma de sua preferência.",
+        },
+        {
+          title: "Formulário de Contato",
+          description:
+            "Um formulário simples de contato para engajar seus clientes, com retorno das informações direto para sua caixa de emails, em instantes!",
+        },
+        {
+          title: "Design Exclusivo",
+          description: "Cores e fontes a seu gosto e do seu negócio.",
+        },
+        {
+          title: "Mobile First",
+          description:
+            "Seu site pensado principalmente para acessos via dispositivos móveis.",
+        },
+        {
+          title: "SEO integrado",
+          description:
+            "O seu site integrado com o Google Search Engine, um serviço de busca de site.",
+        },
+      ],
+      whatsappMessage:
+        "Olá, gostaria de conversar sobre a criacao de um website básico.",
+    },
+    {
+      title: "Completo",
+      description: "Site robusto para seu negócio.",
+      price: 1299.9,
+      features: [
+        {
+          title: "Tudo do website básico",
+          description: "Todas as features do website básico inclusas!",
+        },
+        {
+          title: "Seções Ilimitadas na página inicial",
+          description:
+            "Todas as seções que você deseja incluir na página inicial.",
+        },
+        {
+          title: "Até 4 páginas personalizadas",
+          description:
+            "Até 4 páginas para você apresentar seus produtos, serviços e empresa da maneira mais completa possível.",
+        },
+        {
+          title: "Blog",
+          description:
+            "Um blog para você apresentar os últimos conteúdos sobre seu negócio, empresa ou serviço.",
+        },
+        {
+          title: "Curadoria de Marca (plano 1)",
+          description:
+            "Nossos especialistas em UI/UX preparados para tornar seu negócio, produto ou serviço o mais rentável através de melhorias de marca e experiência de usuário.",
+        },
+      ],
+      whatsappMessage:
+        "Olá, gostaria de conversar sobre a criação de um website completo.",
+    },
+    {
+      title: "Personalizado",
+      description: "Personalize da forma que preferir.",
+      price: "Faça uma cotação",
+      features: [
+        {
+          title: "Tudo do básico e do completo",
+          description: "Personalize a sua maneira!",
+        },
+        {
+          title: "Páginas Ilimitadas",
+          description: "Sem limite de páginas!",
+        },
+        {
+          title: "Template de Loja Virtual (Ecommerce)",
+          description:
+            "Comece a vender com nosso sistema de ecommerce personalizado para sua necessidade.",
+        },
+      ],
+      whatsappMessage:
+        "Olá, gostaria de conversar sobre a criação de um website personalizado.",
+    },
+  ],
+  "en-US": [
+    {
+      title: "Basic",
+      description: "Development of a Personal or basic LandingPage.",
+      price: 100,
+      features: [
+        {
+          title: "Single Page",
+          description:
+            "Website with a single page bringing together all the necessary information about the professional, company or service.",
+        },
+        {
+          title: "Up to 4 Sections",
+          description:
+            "Your page with up to 4 (four) different sections to showcase your profile, company or service.",
+        },
+        {
+          title: "Contact Button",
+          description:
+            "An accessible floating button so your customers can get in touch via Whatsapp, Email, Telegram, or any other platform of your choice.",
+        },
+        {
+          title: "Contact Form",
+          description:
+            "A simple contact form to engage your customers, with information returned directly to your email inbox, quickly!",
+        },
+        {
+          title: "Exclusive Design",
+          description: "Colors and fonts to suit your taste and your business.",
+        },
+        {
+          title: "Mobile First",
+          description: "Your website designed for mobile devices.",
+        },
+        {
+          title: "SEO Integrated",
+          description:
+            "Your website integrated with Google Search Engine, a service of search engine.",
+        },
+      ],
+      whatsappMessage:
+        "Hello, I'd like to talk about the creation of a basic website.",
+    },
+    {
+      title: "Complete",
+      description:
+        "Development of a Website or LandingPage for your client or business.",
+      price: 250,
+      features: [
+        {
+          title: "Everything from the basic website",
+          description:
+            "Everything from the basic website including all the features!",
+        },
+        {
+          title: "Up to 4 custom pages",
+          description:
+            "Up to 4 custom pages to showcase your products, services and company in a more complete way.",
+        },
+        {
+          title: "Blog",
+          description:
+            "A blog to showcase the latest content about your business, company or service.",
+        },
+        {
+          title: "Marketing Plan (plan 1)",
+          description:
+            "Our specialists in UI/UX prepared for your business, product or service to be the most affordable at the moment through improvements in marketing and user experience.",
+        },
+      ],
+      whatsappMessage:
+        "Hello, I'd like to talk about the creation of a complete website.",
+    },
+    {
+      title: "Personalized",
+      description:
+        "Development of a Website or E-commerce Personalized for your client or business.",
+      price: "Cotar",
+      features: [
+        {
+          title: "Everything from the basic and the complete",
+          description: "Personalize your way!",
+        },
+        {
+          title: "No Limit on Pages",
+          description: "No Limit on Pages!",
+        },
+        {
+          title: "Ecommerce Template (Ecommerce)",
+          description:
+            "Start a selling with our ecommerce template for your needs.",
+        },
+      ],
+      whatsappMessage:
+        "Hello, I'd like to talk about the creation of a personalized website.",
+    },
   ],
 };
