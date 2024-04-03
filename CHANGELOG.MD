@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.3.0]- 2024-04-01
+## [1.4.0] - 2024-04-02
+
+- add fetchProject of contentful content model
+- change project section to include the fetchProject of contentful
+
+## [1.3.0] - 2024-04-01
 
 - Add new page /services
 - New component ScheduleButton

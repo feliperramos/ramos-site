@@ -1,9 +1,12 @@
 'use client';
-import { getProjects } from "@/utils/getProjects";
-import Image from "next/image";
 import { useTranslations } from 'next-intl';
+import type { Project } from "@/contentful/projects";
 
-export default function ProjectsSection() {
+interface ProjectSection {
+  projects: Project[];
+}
+
+export default function ProjectsSection({ projects }: ProjectSection) {
   const t = useTranslations('projects');
   return (
     <div className="bg-sky-900 py-20 sm:py-24">
@@ -14,15 +17,16 @@ export default function ProjectsSection() {
         </div>
 
         <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {getProjects.map((item, index) => (
+          {projects.map((item, index) => (
             <article key={index} className="flex max-wl flex-col items-start justify-between">
 
               <div className="mx-auto flex justify-center content-center items-center gap-x-1">
-                <Image src={item.logo} alt="" className="rounded-3xl" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img srcSet={item.logo?.src} src={item.logo?.src} alt="" className="rounded-3xl" />
               </div>
               <div className="group relative">
                 <h3 className="mt-3 text-2xl font-bold leading-6 text-gray-100">
-                  {item.title}
+                  {item.projectName}
                 </h3>
                 <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-200 text-justify">{item.description}</p>
               </div>
@@ -30,7 +34,7 @@ export default function ProjectsSection() {
                 <p className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-bold text-sm text-sky-800 hover:bg-gray-100">
                   {item.technology}
                 </p>
-                <a href={item.link} className="font-semibold text-slate-800 text-base hover:text-black">
+                <a href={item.url} className="font-semibold text-slate-800 text-base hover:text-black">
                   {t('button')} <span aria-hidden="true">&rarr;</span>
                 </a>
               </div>
