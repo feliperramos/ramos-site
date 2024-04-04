@@ -350,7 +350,7 @@ export const ServicesData: ServicesLanguageProps = {
         },
       ],
       whatsappMessage:
-        "Olá, gostaria de conversar sobre a criacao de um website básico.",
+        "Olá, Gostaria de Conversar sobre a criação de um Website BÁSICO.",
     },
     {
       title: "Completo",
@@ -383,7 +383,7 @@ export const ServicesData: ServicesLanguageProps = {
         },
       ],
       whatsappMessage:
-        "Olá, gostaria de conversar sobre a criação de um website completo.",
+        "Olá, Gostaria de conversar sobre a criação de um Website COMPLETO.",
     },
     {
       title: "Personalizado",
@@ -405,7 +405,7 @@ export const ServicesData: ServicesLanguageProps = {
         },
       ],
       whatsappMessage:
-        "Olá, gostaria de conversar sobre a criação de um website personalizado.",
+        "Olá, Gostaria de conversar sobre a criação de um Website PERSONALIZADO.",
     },
   ],
   "en-US": [

@@ -1,6 +1,7 @@
 {
   "header": {
     "menu": {
+      "services": "services",
       "resume": "resume",
       "blog": "blog",
       "projects": "projects",
