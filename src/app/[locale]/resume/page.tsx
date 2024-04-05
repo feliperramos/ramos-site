@@ -44,7 +44,7 @@ export default function Resume() {
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
               <dt className="text-sm font-medium leading-6 text-gray-100">{t('personal.phone')}</dt>
-              <a href={personal.phone} target="_blank" className="mt-1 text-sm leading-6 text-gray-100 hover:text-green-500 sm:col-span-2 sm:mt-o"><WhatsApp className="h-4 w-4" /></a>
+              <a href={`https://wa.me/${personal.phone}`} target="_blank" className="mt-1 text-sm leading-6 text-gray-100 hover:text-green-500 sm:col-span-2 sm:mt-o"><WhatsApp className="h-4 w-4" /></a>
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
               <dt className="text-sm font-medium leading-6 text-gray-100">{t('personal.age')}</dt>

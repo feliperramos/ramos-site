@@ -36,6 +36,18 @@ export const BadgeDegreeStatus = ({ status }: BadgeDegreeStatus) => {
           {status}
         </span>
       );
+    case 'Completa':
+      return (
+        <span className="w-24 text-center rounded-md bg-green-800 px-2 py-1 text-xs font-medium text-green-200 ring-1 ring-inset ring-green-600/20">
+          {status}
+        </span>
+      );
+    case 'Completed':
+      return (
+        <span className="w-24 text-center rounded-md bg-green-800 px-2 py-1 text-xs font-medium text-green-200 ring-1 ring-inset ring-green-600/20">
+          {status}
+        </span>
+      );
     default:
       (
         <span className="w-24 text-center rounded-md bg-blue-200 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">

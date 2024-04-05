@@ -1,4 +1,4 @@
-import { WHATSAPP_PHONE_LINK, EMAIL } from "@/constants";
+import { EMAIL, PHONE_NUMBER } from "@/constants";
 import { MockProps, ServicesLanguageProps } from "@/types";
 
 export const ResumeData: MockProps = {
@@ -6,8 +6,8 @@ export const ResumeData: MockProps = {
     name: "Felipe Ramos",
     location: "Sorocaba/SP - Brasil",
     email: EMAIL,
-    phone: WHATSAPP_PHONE_LINK,
-    age: 26,
+    phone: PHONE_NUMBER,
+    age: 27,
   },
   intro: {
     description: {
@@ -24,7 +24,7 @@ export const ResumeData: MockProps = {
         college: "Universidade de Sorocaba",
         startDate: "02/2022",
         endDate: "11/2023",
-        status: "Em Andamento",
+        status: "Completa",
       },
       {
         degree: "Bacharel em Ciência da Computação",
@@ -40,7 +40,7 @@ export const ResumeData: MockProps = {
         college: "Sorocaba University",
         startDate: "2022/02",
         endDate: "2023/11",
-        status: "In Progress",
+        status: "Completed",
       },
       {
         degree: "Bachelor of Computer Science",
@@ -53,6 +53,23 @@ export const ResumeData: MockProps = {
   },
   experiences: {
     "pt-BR": [
+      {
+        company: "IT Lean",
+        role: "Desenvolvedor FrontEnd Pleno",
+        startDate: "11/2022",
+        endDate: "",
+        description:
+          "Focado em consultoria em cliente, nesta experiência o foco é trabalhar nas melhorias em conjunto do cliente, usando tecnologias como React para melhorar o app do cliente.",
+        technologies: [
+          { technology: "React Native" },
+          { technology: "TypeScript" },
+          { technology: "JavaScript" },
+          { technology: "Azure" },
+          { technology: "CSS" },
+          { technology: "Metodologias Agile" },
+        ],
+        companyLink: "https://www.itlean.com.br",
+      },
       {
         company: "ACCT Global / Quality Digital",
         role: "Desenvolvedor FrontEnd Pleno",
