@@ -351,6 +351,7 @@ export const ServicesData: ServicesLanguageProps = {
       ],
       whatsappMessage:
         "Olá, Gostaria de Conversar sobre a criação de um Website BÁSICO.",
+      promotion: true,
     },
     {
       title: "Completo",
@@ -384,6 +385,7 @@ export const ServicesData: ServicesLanguageProps = {
       ],
       whatsappMessage:
         "Olá, Gostaria de conversar sobre a criação de um Website COMPLETO.",
+      devChoice: true,
     },
     {
       title: "Personalizado",

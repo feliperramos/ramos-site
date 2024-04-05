@@ -26,9 +26,16 @@ export default async function Services() {
         </div>
 
         {/* Card */}
-        <div className="space-y-8 lg:grid sm:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+        <div className=" space-y-8 lg:grid sm:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
           {services[locale].map((item, index) => (
-            <div key={index} className="grid  p-6 shadow mx-auto max-w-lg text-center text-white bg-sky-900 rounded-lg border border-slate-800 xl:p-8">
+            <div key={index} className={`relative grid p-6 shadow mx-auto max-w-lg text-center text-white bg-sky-900 rounded-lg ${item.devChoice ? 'border-[6px] border-sky-500' : 'border border-slate-800'} xl:p-8`}>
+              {(item.promotion || item.devChoice) && (
+                <div className="w-44 h-8 absolute top-8 -right-10">
+                  <div className={`rounded-ss-3xl rounded-se-3xl h-full w-full ${item.devChoice ? 'bg-amber-400' : 'bg-red-600'} text-white text-center leading-8 font-semibold transform rotate-45`}>
+                    {item.devChoice ? "MELHOR ESCOLHA" : "PROMOÇÃO"}
+                  </div>
+                </div>
+              )}
               <div className="items-baseline">
                 <h3 className="mb-4 text-2xl font-extrabold">{item.title}</h3>
                 <p className="font-light text-gray-300 sm:text-lg text-center">{item.description}</p>

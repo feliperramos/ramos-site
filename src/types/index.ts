@@ -62,6 +62,8 @@ export interface ServicesProps {
   price: number | string;
   features: FeatureProps[];
   whatsappMessage: string;
+  promotion?: boolean;
+  devChoice?: boolean;
 }
 
 export interface FeatureProps {
