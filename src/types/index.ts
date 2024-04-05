@@ -52,6 +52,11 @@ export interface TechnologiesProps {
   yearsofExperience?: number;
 }
 
+export interface BaseServices {
+  developer: ServicesLanguageProps;
+  designer: ServicesLanguageProps;
+}
+
 export interface ServicesLanguageProps {
   [key: string]: ServicesProps[];
 }
