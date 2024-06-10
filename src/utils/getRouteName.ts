@@ -10,7 +10,7 @@ export const getRouteName = () => {
     {
       link: "/services",
       value: t("menu.services"),
-      visible: true,
+      visible: false,
     },
     {
       link: `/resume`,
