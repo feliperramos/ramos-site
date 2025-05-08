@@ -175,6 +175,23 @@ export const ResumeData: MockProps = {
     ],
     "en-US": [
       {
+        company: "IT Lean",
+        role: "Mobile Mid-Level FrontEnd Developer",
+        startDate: "11/2022",
+        endDate: "",
+        description:
+          "Focused on client consulting, this experience involves working collaboratively with the client to implement improvements using technologies like React Native to enhance their app. I work on the GPA project, specifically on the Pão de Açúcar Mais and Extra Mercado apps.",
+        technologies: [
+          { technology: "React Native" },
+          { technology: "TypeScript" },
+          { technology: "JavaScript" },
+          { technology: "Azure" },
+          { technology: "CSS" },
+          { technology: "Metodologias Agile" },
+        ],
+        companyLink: "https://www.itlean.com.br",
+      },
+      {
         company: "ACCT Global / Quality Digital",
         role: "FrontEnd Mid-Level Developer",
         startDate: "06/2021",
