@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2025-09-19
+
+- add Puzzle Arena project page
+
 ## [1.4.2] - 2024-04-05
 
 - fix resume information

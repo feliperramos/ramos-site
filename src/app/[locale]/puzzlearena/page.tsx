@@ -28,6 +28,20 @@ function Section({ id, title, children }: { id?: string; title: string; children
   );
 }
 
+function PhoneShot({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="relative rounded-[2rem] border border-white/10 bg-[#0e0e0e] p-2 shadow-2xl">
+      {/* notch */}
+      <div className="pointer-events-none absolute top-2 left-1/2 -translate-x-1/2 w-24 h-6 rounded-b-2xl bg-black/80 border-x border-b border-white/10 z-10" />
+      {/* tela */}
+      <div className="relative aspect-[9/19.5] rounded-[1.6rem] overflow-hidden">
+        <Image src={src} alt={alt} fill className="object-cover" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/20" />
+      </div>
+    </div>
+  );
+}
+
 /* ———————————————————— página ———————————————————— */
 export default function PuzzleArenaLanding() {
   const sp = useSearchParams();
@@ -141,10 +155,10 @@ export default function PuzzleArenaLanding() {
             { img: "sudoku.png", title: "Sudoku", line: "Do fácil ao hardcore" },
             { img: "numberlink.png", title: "Numberlink", line: "Conecte sem cruzar" },
             { img: "2048.png", title: "2048", line: "Clássico + modifiers" },
-            { img: "defense.png", title: "Defense", line: "Waves + upgrades" },
+            { img: "defense.png", title: "Zombie Defense", line: "Waves + upgrades" },
           ].map((g) => (
             <div key={g.title} className="rounded-xl overflow-hidden border border-[#444444] bg-[#1b1b1b]">
-              <div className="relative aspect-[4/3]">
+              <div className="relative aspect-[4/3] mt-4">
                 <Image src={`/images/puzzlearena/${g.img}`} alt={g.title} fill className="object-cover" />
               </div>
               <div className="p-4">
@@ -174,11 +188,13 @@ export default function PuzzleArenaLanding() {
 
       {/* MINI GALERIA — 3–6 prints só pra “vender” o visual */}
       <Section title="Um gostinho do visual">
-        <div className="mt-2 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {["shot1.png", "shot2.png", "shot3.png", "shot4.png", "shot5.png", "shot6.png"].map((f) => (
-            <div key={f} className="relative aspect-[4/3] rounded-xl overflow-hidden border border-[#444444] bg-[#1b1b1b]">
-              <Image src={`/images/puzzlearena/${f}`} alt="Screenshot" fill className="object-cover" />
-            </div>
+        <div className="mt-2 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {["shot1.png", "shot2.png", "shot3.png", "shot4.png", "shot5.png", "shot6.png"].map((f, i) => (
+            <PhoneShot
+              key={f}
+              src={`/images/puzzlearena/${f}`}
+              alt={`Screenshot ${i + 1} do PuzzleArena`}
+            />
           ))}
         </div>
       </Section>

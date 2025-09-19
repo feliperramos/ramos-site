@@ -21,7 +21,10 @@
   "projects": {
     "title": "projetos",
     "description": "Alguns projetos que já desenvolvi",
-    "button": "conheça este projeto"
+    "button": "conheça este projeto",
+    "puzzlearena": {
+      "description": "Hub de puzzles (Sudoku, Numberlink, 2048 e Defense) com cidade, upgrades, boosts e colecionáveis."
+    }
   },
   "blog": {
     "title": "blog",
