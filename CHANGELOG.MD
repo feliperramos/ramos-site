@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.1] - 2025-09-20
+
+- fix error in sendmail
+
 ## [1.5.0] - 2025-09-19
 
 - add Puzzle Arena project page
