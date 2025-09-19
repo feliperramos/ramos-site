@@ -30,12 +30,7 @@ export default function ContactMe() {
     setFormData({ ...formData, [e.currentTarget.name]: e.currentTarget.value })
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const response = await fetch('/api/sendmail', { method: "POST", body: JSON.stringify(formData) });
-
-    if (response.ok)
-      return setValidation(response.ok);
-    return setValidation(false);
+    console.log("temporariamente inativo")
   }
 
   return (
