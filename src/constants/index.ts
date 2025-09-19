@@ -7,4 +7,4 @@ export const CONTENTFUL_PREVIEW_SECRET =
   process.env.CONTENTFUL_PREVIEW_SECRET || "";
 export const EMAIL = process.env.NEXT_PUBLIC_EMAIL || "";
 export const PHONE_NUMBER = process.env.NEXT_PUBLIC_PHONENUMBER || "";
-export const SENDGRID_APIKEY = process.env.SENDGRID_API_KEY || "";
+export const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD || "";

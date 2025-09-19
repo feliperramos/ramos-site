@@ -1,5 +1,5 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
+import { Inter, Tomorrow } from 'next/font/google';
 import { draftMode } from 'next/headers';
 import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
@@ -7,6 +7,7 @@ import ExitDraftModeLink from './ExitDraftModeLink';
 import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] });
+const tomorrow = Tomorrow({ subsets: ["latin"], weight: ["400", "700", "800"] });
 
 export const metadata = {
   title: 'Felipe Ramos - Desenvolvedor',
