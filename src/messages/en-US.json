@@ -5,7 +5,7 @@
       "resume": "resume",
       "blog": "blog",
       "projects": "projects",
-      "contactMe": "contact me",
+      "contactMe": "contact",
       "aboutMe": "about me"
     },
     "languages": {
@@ -15,108 +15,219 @@
   },
   "aboutMe": {
     "title": "about me",
-    "description": "My name is Felipe Ramos. I'm a Front End Developer and I created this site for you to know more about me!<item>I've been working as a developer for over 5 years and I have experience in several technologies, but today my focus is mainly on these technologies:</item>",
+    "description": "My name is Felipe Ramos. I’m a Front-End Developer and I built this site so you can get to know me better.<item>I’ve been working as a developer for 7+ years. I’ve used several stacks, but today my main focus is on these technologies:</item>",
     "button": "see more"
   },
   "projects": {
     "title": "projects",
-    "description": "Example projects that I have already created.",
-    "button": "meet this project"
+    "description": "Featured projects I’ve built",
+    "button": "view project",
+    "puzzlearena": {
+      "description": "Puzzle hub (Sudoku, Numberlink, 2048 and Zombie Defense) with city layer, upgrades, boosts, collectibles and seasonal events."
+    }
   },
   "blog": {
     "title": "blog",
-    "description": "New features, projects, videos in youtube channel and hobbies",
+    "description": "New features, projects, YouTube videos and hobbies",
     "buttonReadMore": "read more",
     "buttonSeeMorePosts": "see more posts",
     "content": {
-      "description": "Descrição"
+      "description": "Description"
     }
   },
   "footer": {
-    "title": "Type your contact email",
-    "description": "Type your email below so I can contact you.",
-    "placeholder": "Enter your email",
+    "title": "Leave your contact e-mail",
+    "description": "Type your e-mail below so I can reach out to you.",
+    "placeholder": "Enter your e-mail",
     "buttonSend": "send",
     "titleMenu": "Menu",
-    "titleSocialMedia": "Social Midia",
+    "titleSocialMedia": "Social media",
     "madeDescription": "Made with 💙",
     "madeDescription2line": "using"
   },
   "resume": {
     "title": "Resume",
-    "description": "This is my Resume, here you will find more information about my career.",
+    "description": "Here you’ll find more details about my career.",
     "personal": {
-      "title": "Personal Information",
+      "title": "Personal information",
       "name": "Name",
       "location": "Location",
-      "email": "Email",
+      "email": "E-mail",
       "phone": "Phone",
       "age": "Age"
     },
     "intro": {
-      "title": "Summary/Objective"
+      "title": "Summary / Objective"
     },
     "education": {
       "title": "Education",
       "degree": "Degree",
-      "college": "College",
-      "startDate": "Start Date",
-      "endDate": "End Date",
+      "college": "University/College",
+      "startDate": "Start date",
+      "endDate": "End date",
       "status": "Status"
     },
     "experience": {
-      "title": "Professional Experience",
+      "title": "Professional experience",
       "company": "Company",
       "role": "Role",
-      "startDate": "Start Date",
-      "endDate": "End Date",
-      "description": "Assignments",
+      "startDate": "Start date",
+      "endDate": "End date",
+      "description": "Responsibilities",
       "technologies": "Technologies used",
-      "companyLink": "Company Website"
+      "companyLink": "Company website"
     },
     "skills": {
       "title": "Skills",
       "technology": "Technology",
-      "skillLevel": "Skill Level",
-      "yearsOfExperience": "Years of Experience"
+      "skillLevel": "Level",
+      "yearsOfExperience": "Years of experience"
     },
     "certifications": {
       "title": "Certifications",
-      "certificationName": "Name of Certificate",
+      "certificationName": "Certificate name",
       "certificationType": "Type",
-      "expirationDate": "Expiration"
+      "expirationDate": "Expiration date"
     }
   },
   "contactMe": {
-    "title": "Contact Me",
+    "title": "Contact me",
     "form": {
-      "fullName": "Full Name",
+      "fullName": "Full name",
       "fullNamePlaceholder": "John Doe",
-      "email": "Email",
+      "email": "E-mail",
       "emailPlaceholder": "email@example.com",
       "subject": "Subject",
-      "typeOfContact": "Type of Contact",
+      "typeOfContact": "Reason for contact",
       "contactOptions": {
         "business": "Business",
         "freelancer": "Freelancer",
         "personal": "Personal",
         "hobby": "Hobby",
-        "takeTime": "Take a Time"
+        "takeTime": "General inquiry"
       },
       "message": "Message",
       "messagePlaceholder": "Leave a message...",
-      "sendButton": "Send Message",
-      "alertSuccess": "<item>Email sent Successfully</item> I will contact soon.",
-      "alertFailure": "<item>Error to send Email</item> Change a few things up and try submitting again."
+      "sendButton": "Send message",
+      "alertSuccess": "<item>E-mail sent successfully.</item> I’ll get back to you soon.",
+      "alertFailure": "<item>Couldn’t send your e-mail.</item> Please review the fields and try again."
     },
     "emailTemplate": {
-      "title": "Your Email has sent successful!",
-      "subtitle": "Thank you {fullName}, for contact me! I'll answer your soon!",
-      "yourEmail": "Your Email:",
-      "message": "Message:",
+      "title": "Your e-mail was sent successfully!",
+      "subtitle": "Thank you, {fullName}, for reaching out! I’ll reply soon.",
+      "yourEmail": "Your e-mail:",
+      "message": "Message",
       "subject": "Subject:",
       "regards": "Regards",
-      "role": "FrontEnd Developer"
+      "role": "Front-End Developer"
+    }
+  },
+  "puzzleArena": {
+    "hero": {
+      "pills": {
+        "sudoku": "Sudoku",
+        "numberlink": "Numberlink",
+        "n2048": "2048",
+        "defense": "Defense"
+      },
+      "headline": "PuzzleArena (beta)",
+      "description": "Play quick puzzles, grab loot, and use it to grow your <b>City</b>. Upgrades, boosts, collectibles and seasonal events — all in one place.",
+      "cta": "Join the closed beta",
+      "imageAlt": "PuzzleArena hero"
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "step1": {
+        "title": "1) Play",
+        "p1": "Quick matches in your favorite puzzles.",
+        "b1": "XP + Coins",
+        "b2": "Game currency (e.g., Stones in Numberlink)",
+        "b3": "Collectible drop chance"
+      },
+      "step2": {
+        "title": "2) Grab the loot",
+        "p1": "Rewards vary by difficulty and performance.",
+        "p2": "XP boost? Watch an ad OR use an item to double the gain. 😎"
+      },
+      "step3": {
+        "title": "3) Level up the City",
+        "p1": "Spend game-specific currencies to upgrade buildings.",
+        "p2": "Upgrades unlock bonuses, skins and production/hour."
+      }
+    },
+    "games": {
+      "title": "Games in the hub",
+      "cards": {
+        "sudoku": { "title": "Sudoku", "line": "From easy to hardcore" },
+        "numberlink": {
+          "title": "Numberlink",
+          "line": "Connect without crossing"
+        },
+        "n2048": { "title": "2048", "line": "Classic + modifiers" },
+        "defense": { "title": "Zombie Defense", "line": "Waves + upgrades" }
+      }
+    },
+    "powerups": {
+      "title": "Power-ups & progression",
+      "items": {
+        "xp": "⚡ XP Boost (x1.5 / x2)",
+        "freeze": "🧊 Freeze / Extra time",
+        "hints": "💡 Hints",
+        "collectibles": "🎲 Rare collectibles",
+        "events": "🎯 Events with drop buff",
+        "skins": "🏆 Skins and unlocks"
+      },
+      "text": "Win → earn XP/coins/<i>game currency</i> → level up → unlock more stuff. Some upgrades require collection items (drop in matches and events)."
+    },
+    "gallery": {
+      "title": "A taste of the visuals",
+      "screenshotAlt": "PuzzleArena screenshot {n}"
+    },
+    "betaWhy": {
+      "title": "Why join the beta?",
+      "i1": "Early access (iOS/Android)",
+      "i2": "Exclusive rewards at launch",
+      "i3": "Help tune costs, boosts and events",
+      "i4": "Direct feedback channel (we LOVE it)"
+    },
+    "form": {
+      "sectionTitle": "Want to try it?",
+      "labels": {
+        "name": "Name",
+        "email": "E-mail",
+        "platform": "Platform",
+        "gamerType": "Profile",
+        "country": "Country (optional)",
+        "message": "Message (optional)"
+      },
+      "placeholders": {
+        "name": "Your name",
+        "email": "you@example.com",
+        "country": "Brazil",
+        "message": "Devices, times, suggestions…"
+      },
+      "options": {
+        "platform": { "ios": "iOS", "android": "Android", "both": "Both" },
+        "gamerType": {
+          "casual": "Casual",
+          "midcore": "Midcore",
+          "hardcore": "Hardcore"
+        }
+      },
+      "buttons": { "submit": "I want to join", "sending": "Sending..." },
+      "alerts": {
+        "successTitle": "All set!",
+        "successBody": "We got your submission. We’ll send the invite soon.",
+        "errorTitle": "Whoops!",
+        "errorBody": "We couldn’t send it. Please try again 🙏"
+      }
+    },
+    "aside": {
+      "title": "What’s in the beta",
+      "i1": "iOS and Android",
+      "i2": "Founder-only rewards",
+      "i3": "Themed skins and drop events",
+      "i4": "Direct feedback channel with the team"
     }
   }
 }

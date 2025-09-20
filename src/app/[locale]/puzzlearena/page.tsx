@@ -3,13 +3,13 @@
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import type { PlaytestForm } from "@/types/puzzlearena";
 import { sendPlaytest } from "@/utils/sendPlaytest";
 import { HeaderSection, FooterSection } from "@/components";
-import { Tomorrow } from 'next/font/google';
-const tomorrow = Tomorrow({ subsets: ['latin'], weight: ['400', '700', '800'] });
+import { Tomorrow } from "next/font/google";
+const tomorrow = Tomorrow({ subsets: ["latin"], weight: ["400", "700", "800"] });
 
 /* ———————————————————— micro componentes ———————————————————— */
 function Pill({ children }: { children: React.ReactNode }) {
@@ -31,9 +31,7 @@ function Section({ id, title, children }: { id?: string; title: string; children
 function PhoneShot({ src, alt }: { src: string; alt: string }) {
   return (
     <div className="relative rounded-[2rem] border border-white/10 bg-[#0e0e0e] p-2 shadow-2xl">
-      {/* notch */}
       <div className="pointer-events-none absolute top-2 left-1/2 -translate-x-1/2 w-24 h-6 rounded-b-2xl bg-black/80 border-x border-b border-white/10 z-10" />
-      {/* tela */}
       <div className="relative aspect-[9/19.5] rounded-[1.6rem] overflow-hidden">
         <Image src={src} alt={alt} fill className="object-cover" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/20" />
@@ -46,6 +44,8 @@ function PhoneShot({ src, alt }: { src: string; alt: string }) {
 export default function PuzzleArenaLanding() {
   const sp = useSearchParams();
   const locale = useLocale();
+  const t = useTranslations("puzzleArena");
+
   const [validate, setValidate] = useState<boolean | string>("");
   const [sending, setSending] = useState(false);
 
@@ -55,7 +55,7 @@ export default function PuzzleArenaLanding() {
       utm_medium: sp.get("utm_medium"),
       utm_campaign: sp.get("utm_campaign"),
       utm_content: sp.get("utm_content"),
-      channel: sp.get("channel"),
+      channel: sp.get("channel")
     }),
     [sp]
   );
@@ -64,12 +64,12 @@ export default function PuzzleArenaLanding() {
     defaultValues: {
       name: "",
       email: "",
-      platform: "ambas",
+      platform: "ambas", // mantém o valor esperado pelo backend
       country: "",
       gamerType: "casual",
       message: "",
-      ...utm,
-    },
+      ...utm
+    }
   });
 
   async function onSubmit(data: PlaytestForm) {
@@ -88,198 +88,204 @@ export default function PuzzleArenaLanding() {
   }, [validate]);
 
   return (
-    <div className={`bg-[#121212] text-[#eeeeee]`}>
+    <div className={`${tomorrow.className} bg-[#121212] text-[#eeeeee]`}>
       <HeaderSection />
 
-      {/* HERO — curto, divertido, com CTA visível */}
+      {/* HERO */}
       <section className="px-6 pt-16 pb-10 mx-auto max-w-(--breakpoint-xl)">
         <div className="grid gap-8 lg:grid-cols-2 items-center">
           <div>
             <div className="flex items-center gap-2">
-              <Pill>🧩 Sudoku</Pill>
-              <Pill>🔗 Numberlink</Pill>
-              <Pill>🧮 2048</Pill>
-              <Pill>🧟‍♂️ Defense</Pill>
+              <Pill>🧩 {t("hero.pills.sudoku")}</Pill>
+              <Pill>🔗 {t("hero.pills.numberlink")}</Pill>
+              <Pill>🧮 {t("hero.pills.n2048")}</Pill>
+              <Pill>🧟‍♂️ {t("hero.pills.defense")}</Pill>
             </div>
             <h1 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight">
-              PuzzleArena (beta)
+              {t("hero.headline")}
             </h1>
             <p className="mt-3 text-lg text-gray-300">
-              Jogue puzzles rápidos, pegue loot, e use tudo para evoluir sua <b>Cidade</b>.
-              Upgrades, boosts, colecionáveis e eventos sazonais. Tudo no mesmo lugar.
+              {t.rich("hero.description", {
+                b: (chunks) => <b>{chunks}</b>,
+              })}
             </p>
             <a
               href="#inscricao"
               className="inline-block mt-6 rounded-md bg-[#9f86ff] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#8f74ff]"
             >
-              Entrar no beta fechado
+              {t("hero.cta")}
             </a>
           </div>
 
           <div className="relative aspect-[16/10] rounded-2xl overflow-hidden border border-[#444444] bg-[#1b1b1b]">
-            {/* troque por vídeo/gif do jogo */}
-            <Image src="/images/puzzlearena/hero.png" alt="PuzzleArena" fill className="object-contain" />
+            <Image src="/images/puzzlearena/hero-2.png" alt={t("hero.imageAlt")} fill className="object-contain" />
           </div>
         </div>
       </section>
 
-      {/* COMO FUNCIONA — 3 passos, sem textão */}
-      <Section title="Como funciona">
+      {/* COMO FUNCIONA */}
+      <Section title={t("howItWorks.title")}>
         <div className="grid gap-6 md:grid-cols-3">
           <div className="rounded-xl border border-[#444444] bg-[#1b1b1b] p-5">
-            <h3 className="text-lg font-bold">1) Jogue</h3>
-            <p className="mt-1 text-gray-300">Partidas rápidas nos seus puzzles favoritos.</p>
+            <h3 className="text-lg font-bold">{t("howItWorks.step1.title")}</h3>
+            <p className="mt-1 text-gray-300">{t("howItWorks.step1.p1")}</p>
             <ul className="mt-3 text-sm text-gray-300 list-disc ml-5">
-              <li>XP + Coins</li>
-              <li>Moeda do jogo (ex.: Stones no Numberlink)</li>
-              <li>Chance de colecionáveis</li>
+              <li>{t("howItWorks.step1.b1")}</li>
+              <li>{t("howItWorks.step1.b2")}</li>
+              <li>{t("howItWorks.step1.b3")}</li>
             </ul>
           </div>
-          <div className="rounded-xl border bborder-[#444444] bg-[#1b1b1b] p-5">
-            <h3 className="text-lg font-bold">2) Pegue o loot</h3>
-            <p className="mt-1 text-gray-300">Recompensas variam por dificuldade e desempenho.</p>
-            <p className="mt-3 text-sm text-gray-400">Boost de XP? Assista um anúncio OU use item e dobre o ganho. 😎</p>
+          <div className="rounded-xl border border-[#444444] bg-[#1b1b1b] p-5">
+            <h3 className="text-lg font-bold">{t("howItWorks.step2.title")}</h3>
+            <p className="mt-1 text-gray-300">{t("howItWorks.step2.p1")}</p>
+            <p className="mt-3 text-sm text-gray-400">{t("howItWorks.step2.p2")}</p>
           </div>
           <div className="rounded-xl border border-[#444444] bg-[#1b1b1b] p-5">
-            <h3 className="text-lg font-bold">3) Evolua a Cidade</h3>
-            <p className="mt-1 text-gray-300">Gaste as moedas específicas para subir prédios.</p>
-            <p className="mt-3 text-sm text-gray-400">Upgrades liberam bônus, skins e produção/hora.</p>
+            <h3 className="text-lg font-bold">{t("howItWorks.step3.title")}</h3>
+            <p className="mt-1 text-gray-300">{t("howItWorks.step3.p1")}</p>
+            <p className="mt-3 text-sm text-gray-400">{t("howItWorks.step3.p2")}</p>
           </div>
         </div>
       </Section>
 
-      {/* OS JOGOS — cards curtinhos */}
-      <Section title="Os jogos do hub">
+      {/* OS JOGOS */}
+      <Section title={t("games.title")}>
         <div className="grid gap-6 md:grid-cols-4">
           {[
-            { img: "sudoku.png", title: "Sudoku", line: "Do fácil ao hardcore" },
-            { img: "numberlink.png", title: "Numberlink", line: "Conecte sem cruzar" },
-            { img: "2048.png", title: "2048", line: "Clássico + modifiers" },
-            { img: "defense.png", title: "Zombie Defense", line: "Waves + upgrades" },
+            { key: "sudoku", img: "sudoku.png" },
+            { key: "numberlink", img: "numberlink.png" },
+            { key: "n2048", img: "2048.png" },
+            { key: "defense", img: "defense.png" }
           ].map((g) => (
-            <div key={g.title} className="rounded-xl overflow-hidden border border-[#444444] bg-[#1b1b1b]">
+            <div key={g.key} className="rounded-xl overflow-hidden border border-[#444444] bg-[#1b1b1b]">
               <div className="relative aspect-[4/3] mt-4">
-                <Image src={`/images/puzzlearena/${g.img}`} alt={g.title} fill className="object-cover" />
+                <Image
+                  src={`/images/puzzlearena/${g.img}`}
+                  alt={t(`games.cards.${g.key}.title`)}
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-4">
-                <h3 className="font-bold">{g.title}</h3>
-                <p className="text-sm text-gray-300">{g.line}</p>
+                <h3 className="font-bold">{t(`games.cards.${g.key}.title`)}</h3>
+                <p className="text-sm text-gray-300">{t(`games.cards.${g.key}.line`)}</p>
               </div>
             </div>
           ))}
         </div>
       </Section>
 
-      {/* BOOSTS + PROGRESSO — em pílulas */}
-      <Section title="Power-ups & progresso">
+      {/* POWER-UPS */}
+      <Section title={t("powerups.title")}>
         <div className="flex flex-wrap gap-3">
-          <Pill>⚡ XP Boost (x1.5 / x2)</Pill>
-          <Pill>🧊 Freeze/Tempo extra</Pill>
-          <Pill>💡 Dicas</Pill>
-          <Pill>🎲 Colecionáveis raros</Pill>
-          <Pill>🎯 Eventos com drop buff</Pill>
-          <Pill>🏆 Skins e desbloqueios</Pill>
+          <Pill>{t("powerups.items.xp")}</Pill>
+          <Pill>{t("powerups.items.freeze")}</Pill>
+          <Pill>{t("powerups.items.hints")}</Pill>
+          <Pill>{t("powerups.items.collectibles")}</Pill>
+          <Pill>{t("powerups.items.events")}</Pill>
+          <Pill>{t("powerups.items.skins")}</Pill>
         </div>
         <p className="mt-4 text-gray-300">
-          Vença → ganhe XP/coins/<i>moeda do jogo</i> → suba de nível → libere mais coisas.
-          Alguns upgrades pedem itens de coleção (drop em partidas e eventos).
+          {t.rich("powerups.text", {
+            i: (chunks) => <i>{chunks}</i>,
+          })}
         </p>
       </Section>
 
-      {/* MINI GALERIA — 3–6 prints só pra “vender” o visual */}
-      <Section title="Um gostinho do visual">
+      {/* GALERIA */}
+      <Section title={t("gallery.title")}>
         <div className="mt-2 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {["shot1.png", "shot2.png", "shot3.png", "shot4.png", "shot5.png", "shot6.png"].map((f, i) => (
             <PhoneShot
               key={f}
               src={`/images/puzzlearena/${f}`}
-              alt={`Screenshot ${i + 1} do PuzzleArena`}
+              alt={t("gallery.screenshotAlt", { n: i + 1 })}
             />
           ))}
         </div>
       </Section>
 
-      {/* POR QUE ENTRAR NO BETA — bullets curtos */}
-      <Section title="Por que entrar no beta?">
+      {/* MOTIVOS */}
+      <Section title={t("betaWhy.title")}>
         <ul className="list-disc ml-5 text-gray-300 space-y-1">
-          <li>Acesso antecipado (iOS/Android)</li>
-          <li>Recompensas exclusivas quando o jogo lançar</li>
-          <li>Ajude a calibrar custos, boosts e eventos</li>
-          <li>Canal direto pra palpitar (e a gente AMA isso)</li>
+          <li>{t("betaWhy.i1")}</li>
+          <li>{t("betaWhy.i2")}</li>
+          <li>{t("betaWhy.i3")}</li>
+          <li>{t("betaWhy.i4")}</li>
         </ul>
       </Section>
 
       {/* FORM */}
-      <Section id="inscricao" title="Bora testar?">
+      <Section id="inscricao" title={t("form.sectionTitle")}>
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="order-2 lg:order-1">
             <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
               <div>
-                <label htmlFor="name" className="block mb-2 text-sm font-medium">Nome</label>
+                <label htmlFor="name" className="block mb-2 text-sm font-medium">{t("form.labels.name")}</label>
                 <input
                   id="name"
                   className="shadow-xs bg-white/5 border border-white/10 text-gray-100 text-sm rounded-md focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 placeholder:text-gray-500"
-                  placeholder="Seu nome"
+                  placeholder={t("form.placeholders.name")}
                   {...register("name", { required: true })}
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium">Email</label>
+                <label htmlFor="email" className="block mb-2 text-sm font-medium">{t("form.labels.email")}</label>
                 <input
                   id="email"
                   type="email"
                   className="shadow-xs bg-white/5 border border-white/10 text-gray-100 text-sm rounded-md focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 placeholder:text-gray-500"
-                  placeholder="voce@exemplo.com"
+                  placeholder={t("form.placeholders.email")}
                   {...register("email", { required: true })}
                 />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="platform" className="block mb-2 text-sm font-medium">Plataforma</label>
+                  <label htmlFor="platform" className="block mb-2 text-sm font-medium">{t("form.labels.platform")}</label>
                   <select
                     id="platform"
                     className="shadow-xs bg-white/5 border border-white/10 text-gray-100 text-sm rounded-md focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
                     {...register("platform", { required: true })}
                   >
-                    <option value="ios">iOS</option>
-                    <option value="android">Android</option>
-                    <option value="ambas">Ambas</option>
+                    <option value="ios">{t("form.options.platform.ios")}</option>
+                    <option value="android">{t("form.options.platform.android")}</option>
+                    <option value="ambas">{t("form.options.platform.both")}</option>
                   </select>
                 </div>
 
                 <div>
-                  <label htmlFor="gamerType" className="block mb-2 text-sm font-medium">Perfil</label>
+                  <label htmlFor="gamerType" className="block mb-2 text-sm font-medium">{t("form.labels.gamerType")}</label>
                   <select
                     id="gamerType"
                     className="shadow-xs bg-white/5 border border-white/10 text-gray-100 text-sm rounded-md focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
                     {...register("gamerType")}
                   >
-                    <option value="casual">Casual</option>
-                    <option value="midcore">Midcore</option>
-                    <option value="hardcore">Hardcore</option>
+                    <option value="casual">{t("form.options.gamerType.casual")}</option>
+                    <option value="midcore">{t("form.options.gamerType.midcore")}</option>
+                    <option value="hardcore">{t("form.options.gamerType.hardcore")}</option>
                   </select>
                 </div>
               </div>
 
               <div>
-                <label htmlFor="country" className="block mb-2 text-sm font-medium">País (opcional)</label>
+                <label htmlFor="country" className="block mb-2 text-sm font-medium">{t("form.labels.country")}</label>
                 <input
                   id="country"
                   className="shadow-xs bg-white/5 border border-white/10 text-gray-100 text-sm rounded-md focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 placeholder:text-gray-500"
-                  placeholder="Brasil"
+                  placeholder={t("form.placeholders.country")}
                   {...register("country")}
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block mb-2 text-sm font-medium">Mensagem (opcional)</label>
+                <label htmlFor="message" className="block mb-2 text-sm font-medium">{t("form.labels.message")}</label>
                 <textarea
                   id="message"
                   rows={4}
                   className="shadow-xs bg-white/5 border border-white/10 text-gray-100 text-sm rounded-md focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 placeholder:text-gray-500"
-                  placeholder="Dispositivos, horários, sugestões…"
+                  placeholder={t("form.placeholders.message")}
                   {...register("message")}
                 />
               </div>
@@ -289,30 +295,30 @@ export default function PuzzleArenaLanding() {
                 disabled={sending}
                 className="rounded-md bg-sky-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {sending ? "Enviando..." : "Quero participar"}
+                {sending ? t("form.buttons.sending") : t("form.buttons.submit")}
               </button>
             </form>
 
             {validate === true && (
               <div className="mt-4 flex items-center p-4 text-sm text-green-800 rounded-lg bg-green-50" role="alert">
-                <span className="font-medium">Pronto!</span>&nbsp;Recebemos sua inscrição. Em breve mandamos o convite.
+                <span className="font-medium">{t("form.alerts.successTitle")}</span>&nbsp;{t("form.alerts.successBody")}
               </div>
             )}
             {validate === false && (
               <div className="mt-4 flex items-center p-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
-                <span className="font-medium">Ops!</span>&nbsp;Não conseguimos enviar. Tenta de novo 🙏
+                <span className="font-medium">{t("form.alerts.errorTitle")}</span>&nbsp;{t("form.alerts.errorBody")}
               </div>
             )}
           </div>
 
           <aside className="order-1 lg:order-2">
             <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-              <h3 className="text-xl font-bold mb-2">O que vem no beta</h3>
+              <h3 className="text-xl font-bold mb-2">{t("aside.title")}</h3>
               <ul className="list-disc ml-5 text-gray-300 space-y-1">
-                <li>iOS e Android</li>
-                <li>Recompensas exclusivas de fundador</li>
-                <li>Skins temáticas e eventos de drop</li>
-                <li>Canal de feedback com o time</li>
+                <li>{t("aside.i1")}</li>
+                <li>{t("aside.i2")}</li>
+                <li>{t("aside.i3")}</li>
+                <li>{t("aside.i4")}</li>
               </ul>
             </div>
           </aside>
