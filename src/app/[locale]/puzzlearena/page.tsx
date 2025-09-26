@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
+import type { SVGProps } from "react";
 import { useForm } from "react-hook-form";
 import { useLocale, useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
@@ -10,6 +11,22 @@ import { sendPlaytest } from "@/utils/sendPlaytest";
 import { HeaderSection, FooterSection } from "@/components";
 import { Tomorrow } from "next/font/google";
 const tomorrow = Tomorrow({ subsets: ["latin"], weight: ["400", "700", "800"] });
+
+/* ———————————————————— instagram ———————————————————— */
+const IG_HANDLE = "@puzzlearenagame";
+const IG_URL = "https://www.instagram.com/puzzlearenagame";
+const buildIgLink = (place: string) =>
+  `${IG_URL}?utm_source=site&utm_medium=social&utm_campaign=landing&utm_content=${place}`;
+
+function InstagramIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="12" cy="12" r="4.2" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" />
+    </svg>
+  );
+}
 
 /* ———————————————————— micro componentes ———————————————————— */
 function Pill({ children }: { children: React.ReactNode }) {
@@ -55,7 +72,7 @@ export default function PuzzleArenaLanding() {
       utm_medium: sp.get("utm_medium"),
       utm_campaign: sp.get("utm_campaign"),
       utm_content: sp.get("utm_content"),
-      channel: sp.get("channel")
+      channel: sp.get("channel"),
     }),
     [sp]
   );
@@ -68,8 +85,8 @@ export default function PuzzleArenaLanding() {
       country: "",
       gamerType: "casual",
       message: "",
-      ...utm
-    }
+      ...utm,
+    },
   });
 
   async function onSubmit(data: PlaytestForm) {
@@ -101,9 +118,7 @@ export default function PuzzleArenaLanding() {
               <Pill>🧮 {t("hero.pills.n2048")}</Pill>
               <Pill>🧟‍♂️ {t("hero.pills.defense")}</Pill>
             </div>
-            <h1 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight">
-              {t("hero.headline")}
-            </h1>
+            <h1 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight">{t("hero.headline")}</h1>
             <p className="mt-3 text-lg text-gray-300">
               {t.rich("hero.description", {
                 b: (chunks) => <b>{chunks}</b>,
@@ -115,6 +130,19 @@ export default function PuzzleArenaLanding() {
             >
               {t("hero.cta")}
             </a>
+
+            {/* — Instagram button — */}
+            <div className="mt-3">
+              <a
+                href={buildIgLink("hero_button")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md border border-white/20 bg-transparent px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/5"
+              >
+                <InstagramIcon className="h-5 w-5" />
+                <span>Seguir {IG_HANDLE}</span>
+              </a>
+            </div>
           </div>
 
           <div className="relative aspect-[16/10] rounded-2xl overflow-hidden border border-[#444444] bg-[#1b1b1b]">
@@ -155,16 +183,11 @@ export default function PuzzleArenaLanding() {
             { key: "sudoku", img: "sudoku.png" },
             { key: "numberlink", img: "numberlink.png" },
             { key: "n2048", img: "2048.png" },
-            { key: "defense", img: "defense.png" }
+            { key: "defense", img: "defense.png" },
           ].map((g) => (
             <div key={g.key} className="rounded-xl overflow-hidden border border-[#444444] bg-[#1b1b1b]">
               <div className="relative aspect-[4/3] mt-4">
-                <Image
-                  src={`/images/puzzlearena/${g.img}`}
-                  alt={t(`games.cards.${g.key}.title`)}
-                  fill
-                  className="object-cover"
-                />
+                <Image src={`/images/puzzlearena/${g.img}`} alt={t(`games.cards.${g.key}.title`)} fill className="object-cover" />
               </div>
               <div className="p-4">
                 <h3 className="font-bold">{t(`games.cards.${g.key}.title`)}</h3>
@@ -196,11 +219,7 @@ export default function PuzzleArenaLanding() {
       <Section title={t("gallery.title")}>
         <div className="mt-2 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {["shot1.png", "shot2.png", "shot3.png", "shot4.png", "shot5.png", "shot6.png"].map((f, i) => (
-            <PhoneShot
-              key={f}
-              src={`/images/puzzlearena/${f}`}
-              alt={t("gallery.screenshotAlt", { n: i + 1 })}
-            />
+            <PhoneShot key={f} src={`/images/puzzlearena/${f}`} alt={t("gallery.screenshotAlt", { n: i + 1 })} />
           ))}
         </div>
       </Section>
@@ -221,7 +240,9 @@ export default function PuzzleArenaLanding() {
           <div className="order-2 lg:order-1">
             <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
               <div>
-                <label htmlFor="name" className="block mb-2 text-sm font-medium">{t("form.labels.name")}</label>
+                <label htmlFor="name" className="block mb-2 text-sm font-medium">
+                  {t("form.labels.name")}
+                </label>
                 <input
                   id="name"
                   className="shadow-xs bg-white/5 border border-white/10 text-gray-100 text-sm rounded-md focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 placeholder:text-gray-500"
@@ -231,7 +252,9 @@ export default function PuzzleArenaLanding() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium">{t("form.labels.email")}</label>
+                <label htmlFor="email" className="block mb-2 text-sm font-medium">
+                  {t("form.labels.email")}
+                </label>
                 <input
                   id="email"
                   type="email"
@@ -243,7 +266,9 @@ export default function PuzzleArenaLanding() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="platform" className="block mb-2 text-sm font-medium">{t("form.labels.platform")}</label>
+                  <label htmlFor="platform" className="block mb-2 text-sm font-medium">
+                    {t("form.labels.platform")}
+                  </label>
                   <select
                     id="platform"
                     className="shadow-xs bg-white/5 border border-white/10 text-gray-100 text-sm rounded-md focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
@@ -256,7 +281,9 @@ export default function PuzzleArenaLanding() {
                 </div>
 
                 <div>
-                  <label htmlFor="gamerType" className="block mb-2 text-sm font-medium">{t("form.labels.gamerType")}</label>
+                  <label htmlFor="gamerType" className="block mb-2 text-sm font-medium">
+                    {t("form.labels.gamerType")}
+                  </label>
                   <select
                     id="gamerType"
                     className="shadow-xs bg-white/5 border border-white/10 text-gray-100 text-sm rounded-md focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
@@ -270,7 +297,9 @@ export default function PuzzleArenaLanding() {
               </div>
 
               <div>
-                <label htmlFor="country" className="block mb-2 text-sm font-medium">{t("form.labels.country")}</label>
+                <label htmlFor="country" className="block mb-2 text-sm font-medium">
+                  {t("form.labels.country")}
+                </label>
                 <input
                   id="country"
                   className="shadow-xs bg-white/5 border border-white/10 text-gray-100 text-sm rounded-md focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 placeholder:text-gray-500"
@@ -280,7 +309,9 @@ export default function PuzzleArenaLanding() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block mb-2 text-sm font-medium">{t("form.labels.message")}</label>
+                <label htmlFor="message" className="block mb-2 text-sm font-medium">
+                  {t("form.labels.message")}
+                </label>
                 <textarea
                   id="message"
                   rows={4}

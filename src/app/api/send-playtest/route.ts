@@ -12,9 +12,6 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, email, platform, country, gamerType, message, ...utm } = body;
 
-    const EMAIL = process.env.PUBLIC_EMAIL;
-    const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
-
     if (!EMAIL || !GMAIL_APP_PASSWORD) {
       console.error("Missing mail envs");
       return NextResponse.json(
