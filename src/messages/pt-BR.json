@@ -130,9 +130,14 @@
         "n2048": "2048",
         "defense": "Defense"
       },
-      "headline": "PuzzleArena (beta)",
+      "headline": "PuzzleArena",
       "description": "Jogue puzzles rápidos, pegue loot e use tudo para evoluir sua <b>Cidade</b>. Upgrades, boosts, colecionáveis e eventos sazonais — tudo no mesmo lugar.",
       "cta": "Entrar no beta fechado",
+      "ctaPlaystoreAlt": "Baixar na Play Store",
+      "ctaPlaystoreAria": "Baixar PuzzleArena na Play Store",
+      "ctaAppstore": "Baixar na App Store",
+      "ctaAppstoreAria": "Baixar PuzzleArena na App Store",
+      "ctaAppstoreSoon": "Em breve na App Store",
       "imageAlt": "Hero do PuzzleArena"
     },
     "howItWorks": {

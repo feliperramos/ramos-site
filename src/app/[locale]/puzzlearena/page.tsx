@@ -12,6 +12,64 @@ import { HeaderSection, FooterSection } from "@/components";
 import { Tomorrow } from "next/font/google";
 const tomorrow = Tomorrow({ subsets: ["latin"], weight: ["400", "700", "800"] });
 
+/* ———————————————————— Google Play ———————————————————— */
+
+const PLAY_PACKAGE_ID =
+  process.env.NEXT_PUBLIC_PLAY_PACKAGE_ID || "com.puzzlearena";
+
+const getPlayBadgeSrc = (locale: string) => {
+  const l = locale.toLowerCase();
+  if (l.startsWith("pt")) {
+    return "https://play.google.com/intl/pt_br/badges/static/images/badges/pt-br_badge_web_generic.png";
+  }
+  if (l.startsWith("es")) {
+    return "https://play.google.com/intl/es_419/badges/static/images/badges/es-419_badge_web_generic.png";
+  }
+  return "https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png";
+};
+
+const buildPlayStoreLink = (place: string, utm: Record<string, string | null>) => {
+  const base = `https://play.google.com/store/apps/details?id=${PLAY_PACKAGE_ID}`;
+  const params = new URLSearchParams({
+    utm_source: utm.utm_source ?? "site",
+    utm_medium: utm.utm_medium ?? "landing",
+    utm_campaign: utm.utm_campaign ?? "puzzle_arena",
+    utm_content: place,
+    channel: utm.channel ?? "web",
+  }).toString();
+  return `${base}&referrer=${encodeURIComponent(params)}`;
+};
+
+/* ———————————————————— App Store ———————————————————— */
+// (no momento, não utilizado, mas deixado aqui para referência futura)
+const APPLE_APP_ID = process.env.NEXT_PUBLIC_APPLE_APP_ID || '';
+const APPSTORE_URL = process.env.NEXT_PUBLIC_APPSTORE_URL || ""; // opcional (override)
+const TESTFLIGHT_URL = process.env.NEXT_PUBLIC_TESTFLIGHT_URL || "";
+
+const buildAppStoreLink = () => {
+  if (APPSTORE_URL) return APPSTORE_URL;
+  if (APPLE_APP_ID) return `https://apps.apple.com/app/id${APPLE_APP_ID}`;
+  return "";
+};
+
+function AppStoreSoonBadge({ label }: { label: string }) {
+  return (
+    <span
+      aria-disabled
+      className="inline-flex items-center gap-2 rounded-md border border-white/20 bg-transparent px-4 py-2.5 text-sm font-semibold text-white/80"
+      title={label}
+    >
+      <svg width="16" height="16" viewBox="0 0 256 256" aria-hidden="true" className="opacity-90">
+        <path
+          d="M216.8 167.9c-6.3 14.3-9.4 20.8-17.6 33.5-11.4 17.5-27.5 39.2-47.4 39.4-17.7.2-22.3-11.6-46.4-11.5-24.1.1-29 11.7-46.8 11.5-19.9-.2-35.1-19.9-46.5-37.3C-9.4 171.4-3.7 114.8 17 84.3 30.4 64.6 50.9 52.3 71 52c18.3-.3 35.6 12.6 46.4 12.6 10.7 0 30.7-15.6 51.8-13.4 8.8 0 33.6 3.6 49.6 27.1-1.3.8-29.6 17.3-28.9 52.3.4 41.6 36.1 55.2 26.9 87.3zM176.8 0c-11.6.8-25.4 8.3-33.5 18.1-7.3 8.7-13.6 21.6-11.9 34.2h.9c12.6 1 25.5-6.4 33.2-16.1 7.6-9.6 13.5-22.9 11.3-36.2z"
+          fill="currentColor"
+        />
+      </svg>
+      {label}
+    </span>
+  );
+}
+
 /* ———————————————————— instagram ———————————————————— */
 const IG_HANDLE = "@puzzlearenagame";
 const IG_URL = "https://www.instagram.com/puzzlearenagame";
@@ -124,12 +182,69 @@ export default function PuzzleArenaLanding() {
                 b: (chunks) => <b>{chunks}</b>,
               })}
             </p>
-            <a
-              href="#inscricao"
-              className="inline-block mt-6 rounded-md bg-[#9f86ff] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#8f74ff]"
-            >
-              {t("hero.cta")}
-            </a>
+
+            {/* === LOJAS / BADGES === */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              {/* Google Play (já existente) */}
+              {PLAY_PACKAGE_ID ? (
+                <a
+                  href={buildPlayStoreLink("hero_badge", utm)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t("hero.ctaPlaystoreAria", { default: "Baixar no Google Play" })}
+                  className="inline-block"
+                >
+                  <Image
+                    src={getPlayBadgeSrc(locale)}
+                    alt={t("hero.ctaPlaystoreAlt", { default: "Disponível no Google Play" })}
+                    width={230}
+                    height={80}
+                    priority
+                    unoptimized
+                  />
+                </a>
+              ) : (
+                <div className="text-sm text-red-300">
+                  Defina <code className="text-red-200">NEXT_PUBLIC_PLAY_PACKAGE_ID</code> para ativar o botão do Google Play.
+                </div>
+              )}
+
+              {/* App Store (em breve) ou link real quando houver */}
+              {buildAppStoreLink() ? (
+                <a
+                  href={buildAppStoreLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t("hero.ctaAppstoreAria", { default: "Baixar na App Store" })}
+                  className="inline-flex items-center rounded-md border border-white/20 bg-white text-black px-4 py-2.5 text-sm font-semibold hover:brightness-95"
+                  title="App Store"
+                >
+                  {/* mini “badge” clean sem alterar asset oficial */}
+                  <svg width="16" height="16" viewBox="0 0 256 256" aria-hidden="true" className="mr-2">
+                    <path
+                      d="M216.8 167.9c-6.3 14.3-9.4 20.8-17.6 33.5-11.4 17.5-27.5 39.2-47.4 39.4-17.7.2-22.3-11.6-46.4-11.5-24.1.1-29 11.7-46.8 11.5-19.9-.2-35.1-19.9-46.5-37.3C-9.4 171.4-3.7 114.8 17 84.3 30.4 64.6 50.9 52.3 71 52c18.3-.3 35.6 12.6 46.4 12.6 10.7 0 30.7-15.6 51.8-13.4 8.8 0 33.6 3.6 49.6 27.1-1.3.8-29.6 17.3-28.9 52.3.4 41.6 36.1 55.2 26.9 87.3zM176.8 0c-11.6.8-25.4 8.3-33.5 18.1-7.3 8.7-13.6 21.6-11.9 34.2h.9c12.6 1 25.5-6.4 33.2-16.1 7.6-9.6 13.5-22.9 11.3-36.2z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <span className="leading-none">{t("hero.ctaAppstore", { default: "Disponível na App Store" })}</span>
+                </a>
+              ) : (
+                <AppStoreSoonBadge label={t("hero.ctaAppstoreSoon", { default: "Em breve no iOS" })} />
+              )}
+
+              {/* (opcional) TestFlight se você já abrir beta no iOS */}
+              {TESTFLIGHT_URL ? (
+                <a
+                  href={TESTFLIGHT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-md border border-sky-500/40 bg-sky-500/10 px-3 py-2 text-sm font-semibold text-sky-200 hover:bg-sky-500/20"
+                  title="TestFlight"
+                >
+                  ✈️ {t("hero.ctaTestflight", { default: "TestFlight (beta)" })}
+                </a>
+              ) : null}
+            </div>
 
             {/* — Instagram button — */}
             <div className="mt-3">

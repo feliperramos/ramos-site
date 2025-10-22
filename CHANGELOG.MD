@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.0] - 2025-20-10
+
+- add google play app link
+- add new links in footer to more social medias
+
 ## [1.5.1] - 2025-09-20
 
 - fix error in sendmail

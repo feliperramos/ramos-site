@@ -130,9 +130,11 @@
         "n2048": "2048",
         "defense": "Defense"
       },
-      "headline": "PuzzleArena (beta)",
+      "headline": "PuzzleArena",
       "description": "Play quick puzzles, grab loot, and use it to grow your <b>City</b>. Upgrades, boosts, collectibles and seasonal events — all in one place.",
       "cta": "Join the closed beta",
+      "ctaPlaystoreAlt": "Download on the Play Store",
+      "ctaPlaystoreAria": "Download PuzzleArena on the Play Store",
       "imageAlt": "PuzzleArena hero"
     },
     "howItWorks": {
